@@ -22,7 +22,7 @@ public class Ship : MonoBehaviour
     public float bulletDelay = 0.2f;
 
     public GameObject Bullet;
-
+    public Game_Manager gMRef;
     public CameraSwitcher cameraSwitcherReference;
   
     private void Start()
@@ -37,64 +37,76 @@ public class Ship : MonoBehaviour
         bool isUpPressed = Input.GetKey(moveUpKey);
         bool isDownPressed = Input.GetKey(moveDownKey);
 
+        
         if (isRightPressed && canMoveRight)
         {
-            transform.Translate(speed, 0.0f, 0.0f);
+            if (gameObject.transform.position.x < 7.0f)
+                transform.Translate(speed, 0.0f, 0.0f);
         }
         else if (isLeftPressed && canMoveLeft)
         {
+            if (gameObject.transform.position.x > -7.0f) 
             transform.Translate(-speed, 0.0f, 0.0f);
         }
         if (isUpPressed && canMoveUp)
         {
+            if(gameObject.transform.position.y < - 48f)
             transform.Translate(0.0f, speed, 0.0f);
         }
         else if (isDownPressed && canMoveDown)
         {
+            if(gameObject.transform.position.y > -54f)
             transform.Translate(0.0f, -speed, 0.0f);
         }
+        
+    }
 
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.W))
+        {
             checkActive3D = !checkActive3D;
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        switch (other.gameObject.name)
-        {
-            case "Right Wall":
-                canMoveRight = false;
-                break;
-            case "Left Wall":
-                canMoveLeft = false;
-                break;
-            case "Top Wall":
-                canMoveUp = false;
-                break;
-            case "Bottom Wall":
-                canMoveDown = false;
-                break;
+            gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
         }
     }
 
-    private void OnCollisionExit(Collision other)
-    {
-        switch (other.gameObject.name)
-        {
-            case "Right Wall":
-                canMoveRight = true;
-                break;
-            case "Left Wall":
-                canMoveLeft = true;
-                break;
-            case "Top Wall":
-                canMoveUp = true;
-                break;
-            case "Bottom Wall":
-                canMoveDown = true;
-                break;
-        }
-    }
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    switch (other.gameObject.name)
+    //    {
+    //        case "Right Wall":
+    //            canMoveRight = false;
+    //            break;
+    //        case "Left Wall":
+    //            canMoveLeft = false;
+    //            break;
+    //        case "Top Wall":
+    //            canMoveUp = false;
+    //            break;
+    //        case "Bottom Wall":
+    //            canMoveDown = false;
+    //            break;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision other)
+    //{
+    //    switch (other.gameObject.name)
+    //    {
+    //        case "Right Wall":
+    //            canMoveRight = true;
+    //            break;
+    //        case "Left Wall":
+    //            canMoveLeft = true;
+    //            break;
+    //        case "Top Wall":
+    //            canMoveUp = true;
+    //            break;
+    //        case "Bottom Wall":
+    //            canMoveDown = true;
+    //            break;
+    //    }
+    //}
 
     void FireBullet()
     {
@@ -112,7 +124,8 @@ public class Ship : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && checkActive3D == true)
         {
-            SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+            gMRef.hitPoints -= 1;
+            //SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
             print("dieddied");
         }
     }

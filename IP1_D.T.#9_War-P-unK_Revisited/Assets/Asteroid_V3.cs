@@ -7,6 +7,7 @@ public class Asteroid_V3 : MonoBehaviour
     float rotZ;
     public bool mineralsCreation = false;
     public PairedUpAsteroid asteroidReference;
+    public Game_Manager gMRef;
     //public GameObject otherReference;
 
 	void Start ()
@@ -23,6 +24,7 @@ public class Asteroid_V3 : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            gMRef.score += 10;
             mineralsCreation = true;
             asteroidReference.asteroidTarget1Reference.GetComponent<SpriteRenderer>().enabled = false;
             asteroidReference.asteroidTarget1Reference.GetComponent<BoxCollider>().enabled = false;

@@ -10,15 +10,16 @@ public class PlayerMovements_V2 : MonoBehaviour
     public BulletSpawner_V2 bulletSpawnerReference;
     public bool reload = true;
     public bool checkActive2D = true;
+    public Game_Manager gMRef;
 
     void Update()
     {
 
-		if(Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y < 12)
+		if(Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y < 8)
         {
             transform.localPosition += spaceVerticalSpeed;
         }
-        else if(Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y > -8)
+        else if(Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y > -6)
         {
             transform.localPosition -= spaceVerticalSpeed;
         }
@@ -29,14 +30,19 @@ public class PlayerMovements_V2 : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.W))
+        {
             checkActive2D = !checkActive2D;
+            gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Asteroid" && checkActive2D == true)
         {
-            SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+            gMRef.hitPoints -= 1;
+            //SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
             print("died");
         }
     }

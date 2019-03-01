@@ -1,12 +1,12 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/User/Desktop/War-P-unK_Working_Prototypes/IP1_D.T.#9_War-P-unK.exe
+C:/Users/User/Desktop/War-P-unK_RV/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
-Assets/Scenes/Prototype_V1.unity
 Assets/Scenes/Prototype_V2.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
+9c504be479fc0b9c90bb7cbf99d1638a Assembly-CSharp.dll:.Minerals
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -20,13 +20,13 @@ c7dd12c15208b0447e101f80038706df UnityEngine.Timeline.dll:UnityEngine.Timeline.A
 0ddb2c46096a1e59e0dce07886ce4769 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 0ddb2c46096a1e59e0dce07886ce4769 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 64f3a13c1277a7f1324321d93d0ec13b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-229313d2b6f36191770f59d093c8694c Assembly-CSharp.dll:.Ship
+f32351998cf2ecd285e2817615ee604a Assembly-CSharp.dll:.Ship
 c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.BulletSpawner_V2
 961be1a0bee5dff6e294826cfafd412e Assembly-CSharp.dll:.TextureMovement_V2
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 b29f92682bb9f4cc7de0e4a96ed8f5b6 Assembly-CSharp.dll:.CameraSwitcher
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Asteroid_V3
+50e6b0fe0f01828a0ee7256cb0324d9e Assembly-CSharp.dll:.Asteroid_V3
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -152,14 +152,17 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 529a95e9e8e7686c4816e08fbb37183f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+f9d908c6efa2222ad9c9d038bfc61457 Assembly-CSharp.dll:.PickUp
 08afa3362ff6315d09dae8bbcf2050c7 Assembly-CSharp.dll:.PlayerMovements_V1
 72a8523b432c0a5317826b7a9e0a0e79 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.rotationblock
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PlayerAcceleration_V1
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Warning3D
 1a90b221dc803408fbafa883c12bcab4 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -169,14 +172,15 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 0b08a0a31240527f2aff279c292c936e Assembly-CSharp.dll:.BulletSpawner_V1
+b8af1fa2e695d2d343bffbcec4840ee7 Assembly-CSharp.dll:.PairedMinerals
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
-9b0938105ffa7150c2f64cc70ad703cd Assembly-CSharp.dll:.PairedUpAsteroid
+6523bfacc2c26a9d67bba1126387d433 Assembly-CSharp.dll:.PairedUpAsteroid
 aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
-fb7cfcfa2944e5f8608e4063b4187168 Assembly-CSharp.dll:.PlayerMovements_V2
+3bfd13ad7a8b2eeba372e28bc3c17f91 Assembly-CSharp.dll:.PlayerMovements_V2
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Asteroid_V1
 ddbfa37939398fa80bedbe439208ecb4 Assembly-CSharp.dll:.PlayerCollision_V1
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -185,5 +189,8 @@ a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Test2D3DSpawner
 14c3c87b6d17a2003857c45e2827be3d Assembly-CSharp.dll:.EnemySpawner
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-e2a6df58ac652cea21f71a80e442206c Assembly-CSharp.dll:.Level_Manager
+a3a854ea04e2d08cdf9b9dbe15b9c8a7 Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+270d8b287c39d4384edcd1fe204f9670 Assembly-CSharp.dll:.Game_Manager
+b00018bffc6cd252a7ceac28dcb47e3d Assembly-CSharp.dll:.PairedWalls
+e8b2fa711e10c7ebe61ff01a2713f8c1 Assembly-CSharp.dll:.WallSpawner

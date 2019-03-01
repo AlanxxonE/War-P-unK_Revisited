@@ -9,6 +9,7 @@ public class Level_Manager : MonoBehaviour
 
     public Button startPrototypeV1;
     public Button startPrototypeV2;
+    public Button exitPrototype;
 
 	void Start ()
     {
@@ -17,6 +18,8 @@ public class Level_Manager : MonoBehaviour
 
         if (startPrototypeV2 != null)
             startPrototypeV2.onClick.AddListener(LoadV2);
+        if (exitPrototype != null)
+            exitPrototype.onClick.AddListener(ExitApp);
 	}
 
 	void Update ()
@@ -34,5 +37,10 @@ public class Level_Manager : MonoBehaviour
     void LoadV1()
     {
         SceneManager.LoadScene("Prototype_V1", LoadSceneMode.Single);
+    }
+    void ExitApp()
+    {
+        Debug.Log("Exit");
+        Application.Quit();
     }
 }

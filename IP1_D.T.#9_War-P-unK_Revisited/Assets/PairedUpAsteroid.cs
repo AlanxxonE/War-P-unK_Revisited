@@ -28,7 +28,7 @@ public class PairedUpAsteroid : MonoBehaviour
         asteroidSpeed = Random.Range(-0.2f, -0.4f);
         offSetX = Random.Range(-3.0f, 3.0f);
         offSetY = Random.Range(-5.0f, 2.0f);
-        mineralProbability = Random.Range(1, 1);
+        mineralProbability = Random.Range(0, 2);
 
         transform.localScale = new Vector3(asteroidSize,asteroidSize,asteroidSize);
 
