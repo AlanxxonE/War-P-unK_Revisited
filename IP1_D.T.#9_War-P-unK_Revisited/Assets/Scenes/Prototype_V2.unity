@@ -703,6 +703,8 @@ RectTransform:
   - {fileID: 114234111}
   - {fileID: 1235693702}
   - {fileID: 400533293}
+  - {fileID: 1547297355}
+  - {fileID: 602865699}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -890,6 +892,7 @@ MonoBehaviour:
   target2: {fileID: 1696904441}
   wall2DRef: {fileID: 2068570264}
   wall3DRef: {fileID: 657821419}
+  pauseRef: {fileID: 1148114217}
 --- !u!4 &363116863
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,6 +1013,7 @@ MonoBehaviour:
   mineralsCreation: 0
   asteroidReference: {fileID: 2131558044}
   gMRef: {fileID: 1148114215}
+  pauseRef: {fileID: 1148114217}
 --- !u!1 &400533292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1582,94 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &602865698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602865699}
+  - component: {fileID: 602865702}
+  - component: {fileID: 602865701}
+  - component: {fileID: 602865700}
+  m_Layer: 5
+  m_Name: WARP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &602865699
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602865698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 329598373}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 100, y: -199}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &602865700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602865698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28b1976596ab9104cb0e710cf16dfea8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &602865701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602865698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bee5d963831c51f49b3b273ce1bd7560, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &602865702
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602865698}
+  m_CullTransparentMesh: 0
 --- !u!1 &618998429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1794,7 @@ MonoBehaviour:
   whiteMineral: {fileID: 21300000, guid: 110172a4075b28c47928d3dc00082d82, type: 3}
   spaceShip2DRef: {fileID: 1605329967}
   spaceShip3DRef: {fileID: 1860191872}
+  pauseRef: {fileID: 1148114217}
 --- !u!1 &622537045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1919,7 @@ MonoBehaviour:
   whiteMineral: {fileID: 21300000, guid: 110172a4075b28c47928d3dc00082d82, type: 3}
   spaceShip2DRef: {fileID: 1605329967}
   spaceShip3DRef: {fileID: 1860191872}
+  pauseRef: {fileID: 1148114217}
 --- !u!1 &657821419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2276,7 @@ MonoBehaviour:
   CameraTwo: {fileID: 534669902}
   spaceShip2D: {fileID: 1605329964}
   spaceShip3D: {fileID: 1860191871}
+  gMRef: {fileID: 1148114215}
   switchKey: 119
   CameraControl: 1
 --- !u!4 &824996925
@@ -2256,6 +2351,7 @@ MonoBehaviour:
   mineralsCreation: 0
   asteroidReference: {fileID: 2131558044}
   gMRef: {fileID: 1148114215}
+  pauseRef: {fileID: 1148114217}
 --- !u!212 &858802297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2466,6 +2562,7 @@ MonoBehaviour:
   whiteMineral: {fileID: 21300000, guid: 110172a4075b28c47928d3dc00082d82, type: 3}
   spaceShip2DRef: {fileID: 1605329967}
   spaceShip3DRef: {fileID: 1860191872}
+  pauseRef: {fileID: 1148114217}
 --- !u!65 &903754789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2953,6 +3050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1148114216}
   - component: {fileID: 1148114215}
+  - component: {fileID: 1148114217}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -2981,6 +3079,8 @@ MonoBehaviour:
   lightRef: {fileID: 205747234}
   greenMineralsCountRef: {fileID: 400533294}
   greenMinerals: 0
+  checkWarpDelay: 0
+  animationReference: {fileID: 0}
 --- !u!4 &1148114216
 Transform:
   m_ObjectHideFlags: 0
@@ -2994,6 +3094,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148114217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148114214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537a84cd3d7e76748a0530d3fc3f26f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPause: 0
+  spaceship2DReference: {fileID: 1605329967}
+  spaceship3DReference: {fileID: 1860191872}
+  cameraRef: {fileID: 824996924}
+  timeUI: {fileID: 1547297352}
 --- !u!1 &1170963270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,6 +3176,96 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1176330956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176330957}
+  - component: {fileID: 1176330960}
+  - component: {fileID: 1176330959}
+  - component: {fileID: 1176330958}
+  m_Layer: 5
+  m_Name: TIME
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1176330957
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1176330956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1547297355}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1176330958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1176330956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 0, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1176330959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1176330956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.990566, b: 0.056541774, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: TIME CONTROL
+--- !u!222 &1176330960
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1176330956}
+  m_CullTransparentMesh: 0
 --- !u!1 &1183476860
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,6 +4189,76 @@ MonoBehaviour:
   playerHit: 0
   mineralReference: {fileID: 2126215796}
   gMRef: {fileID: 1148114215}
+--- !u!1 &1547297352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547297355}
+  - component: {fileID: 1547297354}
+  - component: {fileID: 1547297353}
+  m_Layer: 5
+  m_Name: PAUSE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1547297353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547297352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bee5d963831c51f49b3b273ce1bd7560, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1547297354
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547297352}
+  m_CullTransparentMesh: 0
+--- !u!224 &1547297355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547297352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_Children:
+  - {fileID: 1176330957}
+  m_Father: {fileID: 329598373}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1565100282
 GameObject:
   m_ObjectHideFlags: 0
@@ -5566,6 +5842,7 @@ MonoBehaviour:
   whiteMineral: {fileID: 21300000, guid: 110172a4075b28c47928d3dc00082d82, type: 3}
   spaceShip2DRef: {fileID: 1605329967}
   spaceShip3DRef: {fileID: 1860191872}
+  pauseRef: {fileID: 1148114217}
 --- !u!65 &2126215797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5750,6 +6027,7 @@ MonoBehaviour:
   mineralTarget2Reference: {fileID: 1628471750}
   asteroidTarget1Reference: {fileID: 373757571}
   asteroidTarget2Reference: {fileID: 858802293}
+  pauseRef: {fileID: 1148114217}
 --- !u!1 &2139979139
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class Minerals : MonoBehaviour
     public Sprite whiteMineral;
     public PlayerMovements_V2 spaceShip2DRef;
     public Ship spaceShip3DRef;
+    public Pause_State pauseRef;
 
     // Use this for initialization
     void Start ()
@@ -81,80 +82,83 @@ public class Minerals : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if (mineralTarget2 != null)
-            mineralTarget2.transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);
-        //if(spaceShip2DRef.checkActive2D == true)
-        //{
-        //    gameObject.GetComponent<BoxCollider>().enabled = true;
-        //}
-        //else
-        //{
-        //    gameObject.GetComponent<BoxCollider>().enabled = false;
-        //}
-
-        //if(spaceShip3DRef.checkActive3D == true)
-        //{
-        //    if(mineralTarget2 != null)
-        //    mineralTarget2.GetComponent<BoxCollider>().enabled = true;
-        //}
-        //else
-        //{
-        //    if(mineralTarget2 != null)
-        //    mineralTarget2.GetComponent<BoxCollider>().enabled = false;
-        //}
-        if (movementX < offSetX)
+        if (pauseRef.checkPause == false)
         {
-            movementX += 0.1f;
-            gameObject.transform.localPosition += new Vector3(movementX, 0);
-            mineralTarget2.transform.localPosition += new Vector3(movementX, 0, 0);
-        }
-        else if(movementY < offSetY)
-        {
-            movementY += 0.1f;
-            gameObject.transform.localPosition += new Vector3(0, movementY);
-            mineralTarget2.transform.localPosition += new Vector3(0, movementY, 0);
-        }
-        if(movementZ < offSetZ)
-        {
-            movementZ += 0.1f;
-            mineralTarget2.transform.localPosition += new Vector3(0, 0, movementZ);
-        }
+            if (mineralTarget2 != null)
+                mineralTarget2.transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);
+            //if(spaceShip2DRef.checkActive2D == true)
+            //{
+            //    gameObject.GetComponent<BoxCollider>().enabled = true;
+            //}
+            //else
+            //{
+            //    gameObject.GetComponent<BoxCollider>().enabled = false;
+            //}
 
-        //kRot += 10f;
-        //gameObject.transform.localRotation = Quaternion.Euler(0, 0, kRot);
-        //if(checkActive == true && gameObject.activeSelf == true)
-        //{
-        //    checkActive = false;
-
-        //    if (activeProbability > 0.5f)
-        //    {
-        //        if (pickUpProbability < 0.5f)
-        //        {
-        //            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-        //            mineralTarget2.GetComponent<SpriteRenderer>().color = Color.green;
-        //        }
-        //        else if (pickUpProbability > 0.5f)
-        //        {
-        //            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        //            mineralTarget2.GetComponent<SpriteRenderer>().color = Color.red;
-        //        }
-
-        //        gameObject.transform.position += new Vector3(offSetX, offSetY);
-        //        mineralTarget2.transform.position += new Vector3(offSetX, offSetY, offSetZ);
-        //    }
-        //    else if (activeProbability < 0.5f)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //}
-
-        if (mineralTarget2 != null)
-        {
-            if (GetComponent<PickUp>().playerHit == true || mineralTarget2.GetComponent<PickUp>().playerHit == true)
+            //if(spaceShip3DRef.checkActive3D == true)
+            //{
+            //    if(mineralTarget2 != null)
+            //    mineralTarget2.GetComponent<BoxCollider>().enabled = true;
+            //}
+            //else
+            //{
+            //    if(mineralTarget2 != null)
+            //    mineralTarget2.GetComponent<BoxCollider>().enabled = false;
+            //}
+            if (movementX < offSetX)
             {
+                movementX += 0.1f;
+                gameObject.transform.localPosition += new Vector3(movementX, 0);
+                mineralTarget2.transform.localPosition += new Vector3(movementX, 0, 0);
+            }
+            else if (movementY < offSetY)
+            {
+                movementY += 0.1f;
+                gameObject.transform.localPosition += new Vector3(0, movementY);
+                mineralTarget2.transform.localPosition += new Vector3(0, movementY, 0);
+            }
+            if (movementZ < offSetZ)
+            {
+                movementZ += 0.1f;
+                mineralTarget2.transform.localPosition += new Vector3(0, 0, movementZ);
+            }
+
+            //kRot += 10f;
+            //gameObject.transform.localRotation = Quaternion.Euler(0, 0, kRot);
+            //if(checkActive == true && gameObject.activeSelf == true)
+            //{
+            //    checkActive = false;
+
+            //    if (activeProbability > 0.5f)
+            //    {
+            //        if (pickUpProbability < 0.5f)
+            //        {
+            //            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            //            mineralTarget2.GetComponent<SpriteRenderer>().color = Color.green;
+            //        }
+            //        else if (pickUpProbability > 0.5f)
+            //        {
+            //            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            //            mineralTarget2.GetComponent<SpriteRenderer>().color = Color.red;
+            //        }
+
+            //        gameObject.transform.position += new Vector3(offSetX, offSetY);
+            //        mineralTarget2.transform.position += new Vector3(offSetX, offSetY, offSetZ);
+            //    }
+            //    else if (activeProbability < 0.5f)
+            //    {
+            //        gameObject.SetActive(false);
+            //    }
+            //}
+
+            if (mineralTarget2 != null)
+            {
+                if (GetComponent<PickUp>().playerHit == true || mineralTarget2.GetComponent<PickUp>().playerHit == true)
+                {
                     Destroy(mineralTarget2);
-                if (gameObject != null)
-                    Destroy(gameObject);
+                    if (gameObject != null)
+                        Destroy(gameObject);
+                }
             }
         }
 	}

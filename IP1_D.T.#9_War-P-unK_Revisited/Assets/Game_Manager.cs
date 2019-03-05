@@ -20,8 +20,11 @@ public class Game_Manager : MonoBehaviour
     public Text greenMineralsCountRef;
     public int greenMinerals = 0;
 
-	// Use this for initialization
-	void Start ()
+    public bool checkWarpDelay = false;
+    public Animator animationReference;
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -54,6 +57,12 @@ public class Game_Manager : MonoBehaviour
         {
             SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
         }
+
+        if(Input.GetKeyDown(KeyCode.W) && checkWarpDelay == false)
+        {
+            animationReference.Play(); 
+            StartCoroutine("WarpDelay");
+        }
 	}
 
     IEnumerator DecreaseFuel()
@@ -62,5 +71,12 @@ public class Game_Manager : MonoBehaviour
         fuel -= 10;
         yield return new WaitForSeconds(3f);
         fuelDecreaseRate = true;
+    }
+
+    IEnumerator WarpDelay()
+    {
+        checkWarpDelay = true;
+        yield return new WaitForSeconds(3f);
+        checkWarpDelay = false;
     }
 }

@@ -8,6 +8,7 @@ public class Asteroid_V3 : MonoBehaviour
     public bool mineralsCreation = false;
     public PairedUpAsteroid asteroidReference;
     public Game_Manager gMRef;
+    public Pause_State pauseRef;
     //public GameObject otherReference;
 
 	void Start ()
@@ -16,8 +17,11 @@ public class Asteroid_V3 : MonoBehaviour
     }
 	void Update ()
     {
-        rotZ -= 1f;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        if (pauseRef.checkPause == false)
+        {
+            rotZ -= 1f;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        }
 	}
 
     private void OnTriggerEnter(Collider other)

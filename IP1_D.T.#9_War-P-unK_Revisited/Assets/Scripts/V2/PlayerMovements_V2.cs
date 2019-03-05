@@ -29,10 +29,13 @@ public class PlayerMovements_V2 : MonoBehaviour
             bulletSpawnerReference.SpawnBulletV2();
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (gMRef.checkWarpDelay == false)
         {
-            checkActive2D = !checkActive2D;
-            gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                checkActive2D = !checkActive2D;
+                gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
+            }
         }
 
     }

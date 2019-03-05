@@ -9,6 +9,7 @@ public class PairedWalls : MonoBehaviour
     public GameObject target2;
     public GameObject wall2DRef;
     public GameObject wall3DRef;
+    public Pause_State pauseRef;
 
     // Use this for initialization
     void Start ()
@@ -23,7 +24,10 @@ public class PairedWalls : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (pauseRef.checkPause == false)
+        {
             wall2DRef.transform.position += new Vector3(wallSpeed, 0);
             wall3DRef.transform.Translate(0, 0, wallSpeed);
+        }
     }
 }
