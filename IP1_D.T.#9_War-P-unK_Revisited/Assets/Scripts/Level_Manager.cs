@@ -24,10 +24,10 @@ public class Level_Manager : MonoBehaviour
 
 	void Update ()
     {
-		if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Main_Menu",LoadSceneMode.Single);
-        }
+		//if(Input.GetKeyDown(KeyCode.Escape))
+  //      {
+  //          SceneManager.LoadScene("Main_Menu",LoadSceneMode.Single);
+  //      }
 	}
 
     void LoadV2()

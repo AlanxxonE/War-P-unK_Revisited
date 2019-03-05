@@ -20,6 +20,7 @@ public class PairedUpAsteroid : MonoBehaviour
     public GameObject mineralTarget2Reference;
     public GameObject asteroidTarget1Reference;
     public GameObject asteroidTarget2Reference;
+    public Pause_State pauseRef;
 
     // Use this for initialization
     void Start ()
@@ -43,17 +44,21 @@ public class PairedUpAsteroid : MonoBehaviour
     void Update ()
     {
 
-        if ((mineralReference2D.mineralsCreation == true || mineralReference3D.mineralsCreation == true) && mineralProbability == 1)
+        if (pauseRef.checkPause == false)
         {
-            asteroidTarget1Reference.transform.position += new Vector3(-0.1f, 0);
-            asteroidTarget2Reference.transform.Translate(0, 0, -0.1f);
-            mineralTarget1Reference.SetActive(true);
-            mineralTarget2Reference.SetActive(true);
-        }
-        else
-        {
-            asteroidTarget1Reference.transform.position += new Vector3(asteroidSpeed, 0);
-            asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
+            if ((mineralReference2D.mineralsCreation == true || mineralReference3D.mineralsCreation == true) && mineralProbability == 1)
+            {
+                asteroidTarget1Reference.transform.position += new Vector3(-0.1f, 0);
+                asteroidTarget2Reference.transform.Translate(0, 0, -0.1f);
+                mineralTarget1Reference.SetActive(true);
+                mineralTarget2Reference.SetActive(true);
+            }
+            else
+            {
+                asteroidTarget1Reference.transform.position += new Vector3(asteroidSpeed, 0);
+                asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
+
+            }
         }
     }
 }
