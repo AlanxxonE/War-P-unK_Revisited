@@ -14,7 +14,8 @@ public class PairedWalls : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        wallSpeed = Random.Range(-0.2f, -0.4f);
+        StartCoroutine("AutoDeath");
+        wallSpeed = Random.Range(-0.1f, -0.2f);
 
         wall2DRef.transform.position = target1.transform.position;
         wall3DRef.transform.position = target2.transform.position;
@@ -29,5 +30,11 @@ public class PairedWalls : MonoBehaviour
             wall2DRef.transform.position += new Vector3(wallSpeed, 0);
             wall3DRef.transform.Translate(0, 0, wallSpeed);
         }
+    }
+
+    IEnumerator AutoDeath()
+    {
+        yield return new WaitForSeconds(20f);
+        Destroy(gameObject);
     }
 }

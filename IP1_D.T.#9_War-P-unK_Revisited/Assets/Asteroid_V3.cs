@@ -41,7 +41,7 @@ public class Asteroid_V3 : MonoBehaviour
 
     IEnumerator autoAsteroidDeath()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(20f);
         Destroy(transform.parent.gameObject);
     }
 

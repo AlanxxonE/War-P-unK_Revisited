@@ -19,7 +19,7 @@ public class PairedMinerals : MonoBehaviour
     void Start()
     {
         //mineralSize = Random.Range(0.5f, 2.0f);
-        mineralSpeed = Random.Range(-0.1f, -0.2f);
+        mineralSpeed = Random.Range(-0.05f, -0.15f);
         offSetX = Random.Range(-0.3f, 0.3f);
         offSetY = Random.Range(-0.2f, 0.5f);
 

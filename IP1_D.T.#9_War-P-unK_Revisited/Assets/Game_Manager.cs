@@ -25,6 +25,9 @@ public class Game_Manager : MonoBehaviour
     public bool checkWarpDelay = false;
     public Animator animationReference;
 
+    public float warpCharge;
+    public GameObject warpParticleRef2D;
+    public GameObject warpParticleRef3D;
     // Use this for initialization
     void Start ()
     {
@@ -46,6 +49,7 @@ public class Game_Manager : MonoBehaviour
 
         if(fuel == 0)
         {
+            print("RunOutOfFuel");
             SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
         }
         if(hitPoints == 2)
@@ -61,10 +65,30 @@ public class Game_Manager : MonoBehaviour
             SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
         }
 
-        if(Input.GetKeyDown(KeyCode.W) && checkWarpDelay == false)
+        if(Input.GetKey(KeyCode.W) && checkWarpDelay == false)
         {
-            animationReference.speed = 1;
-            StartCoroutine("WarpDelay");
+            warpCharge += 0.02f;
+            if (spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D == true)
+            {
+                warpParticleRef2D.SetActive(true);
+            }
+            if (spaceShip3DRef.GetComponent<Ship>().checkActive3D == true)
+            {
+                warpParticleRef3D.SetActive(true);
+            }
+
+            if (warpCharge > 1)
+            {
+                animationReference.speed = 1;
+                StartCoroutine("WarpDelay");
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) || warpCharge == 0f)
+        {
+            warpCharge = 0;
+            warpParticleRef2D.SetActive(false);
+            warpParticleRef3D.SetActive(false);
         }
 	}
 
@@ -77,7 +101,7 @@ public class Game_Manager : MonoBehaviour
     {
         fuelDecreaseRate = false;
         fuel -= 10;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         fuelDecreaseRate = true;
     }
 

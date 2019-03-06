@@ -67,13 +67,17 @@
     <Compile Include="Assets\3D_Prototype\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\3D_Prototype\Scripts\Ship.cs" />
     <Compile Include="Assets\Asteroid_V3.cs" />
+    <Compile Include="Assets\BlueSpawner.cs" />
     <Compile Include="Assets\Game_Manager.cs" />
     <Compile Include="Assets\Minerals.cs" />
+    <Compile Include="Assets\PairBlueMineral.cs" />
     <Compile Include="Assets\PairedMinerals.cs" />
     <Compile Include="Assets\PairedUpAsteroid.cs" />
     <Compile Include="Assets\PairedWalls.cs" />
+    <Compile Include="Assets\PairPurpleMineral.cs" />
     <Compile Include="Assets\Pause_State.cs" />
     <Compile Include="Assets\PickUp.cs" />
+    <Compile Include="Assets\PurpleSpawner.cs" />
     <Compile Include="Assets\rotationblock.cs" />
     <Compile Include="Assets\Scripts\Level_Manager.cs" />
     <Compile Include="Assets\Scripts\V1\Asteroid_V1.cs" />

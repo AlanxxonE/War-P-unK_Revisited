@@ -16,11 +16,9 @@ public class CameraSwitcher : MonoBehaviour
 
     private void Update()
     {
-        bool isWPressed = Input.GetKeyDown(switchKey);
+        //bool isWPressed = Input.GetKeyDown(switchKey);
 
-        if (gMRef.checkWarpDelay == false)
-        {
-            if (isWPressed)
+            if (gMRef.warpCharge > 1)
             {
                 if (CameraControl == 0)
                 {
@@ -42,7 +40,8 @@ public class CameraSwitcher : MonoBehaviour
                     CameraTwo.SetActive(true);
                     CameraControl = 0;
                 }
+
+                gMRef.warpCharge = 0f;
             }
-        }
     }
 }

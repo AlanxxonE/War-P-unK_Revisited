@@ -8,6 +8,7 @@ public class Pause_State : MonoBehaviour
     public MonoBehaviour spaceship2DReference;
     public MonoBehaviour spaceship3DReference;
     public CameraSwitcher cameraRef;
+    public Game_Manager gMRef;
     public GameObject timeUI;
 
 	// Use this for initialization
@@ -28,6 +29,7 @@ public class Pause_State : MonoBehaviour
                 spaceship2DReference.enabled = false;
                 spaceship3DReference.enabled = false;
                 cameraRef.enabled = false;
+                gMRef.enabled = false;
                 timeUI.SetActive(true);
             }
 
@@ -38,6 +40,7 @@ public class Pause_State : MonoBehaviour
                 spaceship2DReference.enabled = true;
                 spaceship3DReference.enabled = true;
                 cameraRef.enabled = true;
+                gMRef.enabled = true;
                 timeUI.SetActive(false);
             }
         }
