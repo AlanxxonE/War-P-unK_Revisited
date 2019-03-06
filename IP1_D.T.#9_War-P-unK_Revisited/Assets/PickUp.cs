@@ -19,7 +19,10 @@ public class PickUp : MonoBehaviour
                 playerHit = true;
                 if(mineralReference.fuelProbability > 0.5f)
                 {
-                    gMRef.fuel += 10;
+                    if (gMRef.fuel < 100)
+                    {
+                        gMRef.fuel += 10;
+                    }
                 }
                 else
                 {
@@ -27,6 +30,7 @@ public class PickUp : MonoBehaviour
                     gMRef.score += 20;
                 }
                 Destroy(gameObject);
+                Destroy(mineralReference.mineralTarget2);
             }
 
             if (mineralReference.pickUpProbability > 0.75f)

@@ -20,17 +20,22 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        switch(collision.gameObject.name)
-        {
-            case "Ship":
-                break;
-            default:
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-                print("HIt");
-                break;
-        }
+        Destroy(gameObject);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    switch(collision.gameObject.name)
+    //    {
+    //        case "Ship":
+    //            break;
+    //        default:
+    //            Destroy(collision.gameObject);
+    //            Destroy(gameObject);
+    //            print("HIt");
+    //            break;
+    //    }
+    //}
 }

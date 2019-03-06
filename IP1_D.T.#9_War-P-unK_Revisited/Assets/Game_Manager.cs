@@ -11,6 +11,8 @@ public class Game_Manager : MonoBehaviour
     bool fuelDecreaseRate = true;
     public Text scoreReference;
     public int score = 0;
+    public GameObject fuelBarRef;
+    //public Texture fuelBarTex;
 
     public int hitPoints = 3;
     public GameObject spaceShip2DRef;
@@ -26,7 +28,7 @@ public class Game_Manager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
+        animationReference.speed = 1000;
 	}
 	
 	// Update is called once per frame
@@ -40,7 +42,8 @@ public class Game_Manager : MonoBehaviour
         {
             StartCoroutine("DecreaseFuel");
         }
-        
+        fuelBarRef.GetComponent<RectTransform>().sizeDelta = new Vector2(fuel*3, 40);
+
         if(fuel == 0)
         {
             SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
@@ -60,21 +63,34 @@ public class Game_Manager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.W) && checkWarpDelay == false)
         {
-            animationReference.Play(); 
+            animationReference.speed = 1;
             StartCoroutine("WarpDelay");
         }
 	}
+
+    //private void OnGUI()
+    //{
+    //    GUI.Box(new Rect((fuelBarRef.transform.position.x), 5, fuel, 10), fuelBarTex);
+    //}
 
     IEnumerator DecreaseFuel()
     {
         fuelDecreaseRate = false;
         fuel -= 10;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         fuelDecreaseRate = true;
     }
 
     IEnumerator WarpDelay()
     {
+        if(checkWarpDelay == false)
+        {
+            animationReference.Play("Recall", 0,0);
+            spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D = !spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D;
+            spaceShip2DRef.GetComponent<BoxCollider>().enabled = !spaceShip2DRef.GetComponent<BoxCollider>().enabled;
+            spaceShip3DRef.GetComponent<Ship>().checkActive3D = !spaceShip3DRef.GetComponent<Ship>().checkActive3D;
+            spaceShip3DRef.GetComponent<BoxCollider>().enabled = !spaceShip3DRef.GetComponent<BoxCollider>().enabled;
+        }
         checkWarpDelay = true;
         yield return new WaitForSeconds(3f);
         checkWarpDelay = false;

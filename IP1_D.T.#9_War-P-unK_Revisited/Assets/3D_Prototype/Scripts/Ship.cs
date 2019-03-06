@@ -63,14 +63,14 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
-        if (gMRef.checkWarpDelay == false)
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                checkActive3D = !checkActive3D;
-                gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
-            }
-        }
+        //if (gMRef.checkWarpDelay == false)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.W) || checkActive3D == false)
+        //    {
+        //        checkActive3D = !checkActive3D;
+        //        gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
+        //    }
+        //}
     }
 
     //private void OnCollisionEnter(Collision other)
