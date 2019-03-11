@@ -15,9 +15,9 @@ public class PairPurpleMineral : MonoBehaviour
     void Start ()
     {
         StartCoroutine("AutoDeath");
-        purpleMineralSpeed = Random.Range(-0.01f, -0.1f);
+        purpleMineralSpeed = Random.Range(-0.05f, -0.1f);
 
-        purpleMineralRef.transform.position = target1.transform.position;
+        purpleMineralRef.transform.position = target1.transform.position + new Vector3(0, +1, 0);
         purpleLightRef.transform.position = target2.transform.position;
     }
 
@@ -30,7 +30,7 @@ public class PairPurpleMineral : MonoBehaviour
             purpleLightRef.transform.Translate(0, 0, purpleMineralSpeed);
         }
     }
-
+   
     IEnumerator AutoDeath()
     {
         yield return new WaitForSeconds(20f);

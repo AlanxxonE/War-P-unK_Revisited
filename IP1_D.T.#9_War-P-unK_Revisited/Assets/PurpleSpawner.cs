@@ -8,6 +8,7 @@ public class PurpleSpawner : MonoBehaviour
     public Game_Manager gMRef;
     int tempScore = 100;
     int iCounter = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,11 +17,11 @@ public class PurpleSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(gMRef.score >= tempScore * iCounter)
+		if(Game_Manager.score >= tempScore * iCounter)
         {
             GameObject purpleTemp = Instantiate(purpleMineralReference);
             purpleTemp.SetActive(true);
-            tempScore = gMRef.score;
+            //tempScore = gMRef.score;
             iCounter += 1;
         }
 	}

@@ -11,7 +11,7 @@ public class Test2D3DSpawner : MonoBehaviour
     {
         InvokeRepeating("SpawnAsteroids", 0f, 1.5f);
     }
-	
+
 	void SpawnAsteroids ()
     {
         GameObject asteroidTemp = Instantiate(asteroidReference);

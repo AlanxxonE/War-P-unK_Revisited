@@ -6,7 +6,7 @@ public class BlueSpawner : MonoBehaviour
 {
     public GameObject blueMineralRef;
     public Game_Manager gMRef;
-    int tempScore = 100;
+    int tempScore = 50;
     int iCounter = 1;
 	// Use this for initialization
 	void Start () {
@@ -16,11 +16,12 @@ public class BlueSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(gMRef.score >= (tempScore / 2) * iCounter)
+		if(Game_Manager.score >= tempScore * iCounter)
         {
             GameObject purpleTemp = Instantiate(blueMineralRef);
             purpleTemp.SetActive(true);
-            tempScore = gMRef.score;
+
+            //tempScore = gMRef.score;
             iCounter += 1;
         }
 	}

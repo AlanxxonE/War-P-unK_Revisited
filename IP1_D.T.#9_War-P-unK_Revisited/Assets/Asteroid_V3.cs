@@ -28,7 +28,7 @@ public class Asteroid_V3 : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            gMRef.score += 10;
+            Game_Manager.score += 10;
             mineralsCreation = true;
             asteroidReference.asteroidTarget1Reference.GetComponent<SpriteRenderer>().enabled = false;
             asteroidReference.asteroidTarget1Reference.GetComponent<BoxCollider>().enabled = false;

@@ -14,11 +14,13 @@ public class PairBlueMineral : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        if(gameObject !=null)
         StartCoroutine("AutoDeath");
-        blueMineralSpeed = Random.Range(-0.01f, -0.1f);
+
+        blueMineralSpeed = Random.Range(-0.05f, -0.1f);
 
         blueLightRef.transform.position = target1.transform.position;
-        blueMineralRef.transform.position = target2.transform.position;
+        blueMineralRef.transform.position = target2.transform.position - new Vector3(0, 3, 0);
     }
 
     // Update is called once per frame

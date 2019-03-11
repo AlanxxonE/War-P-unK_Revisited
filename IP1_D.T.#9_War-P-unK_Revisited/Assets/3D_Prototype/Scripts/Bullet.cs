@@ -7,13 +7,11 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed = 0.3f;
     public Transform ship;
     public float maxDistance = 40f;
-
-    private void FixedUpdate()
-    {
-        transform.Translate(0.0f, 0.0f, BulletSpeed);
-    }
+    
     void Update()
     {
+        transform.position += new Vector3(0.0f, 0.0f, BulletSpeed);
+
         if (Vector3.Distance(transform.position, ship.position) > maxDistance)
         {
             Destroy(gameObject);

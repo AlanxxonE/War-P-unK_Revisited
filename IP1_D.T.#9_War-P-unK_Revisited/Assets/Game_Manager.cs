@@ -10,7 +10,7 @@ public class Game_Manager : MonoBehaviour
     public int fuel = 100;
     bool fuelDecreaseRate = true;
     public Text scoreReference;
-    public int score = 0;
+    public static int score = 0;
     public GameObject fuelBarRef;
     //public Texture fuelBarTex;
 
@@ -18,9 +18,16 @@ public class Game_Manager : MonoBehaviour
     public GameObject spaceShip2DRef;
     public GameObject spaceShip3DRef;
     public GameObject lightRef;
+    public GameObject warpLightRef;
+
+    public GameObject wallRef;
 
     public Text greenMineralsCountRef;
-    public int greenMinerals = 0;
+    public static int greenMinerals = 0;
+    public Text blueMineralsCountRef;
+    public static int blueMinerals = 0;
+    public Text purpleMineralsCountRef;
+    public static int purpleMinerals = 0;
 
     public bool checkWarpDelay = false;
     public Animator animationReference;
@@ -41,7 +48,14 @@ public class Game_Manager : MonoBehaviour
         scoreReference.text = score.ToString();
         if (greenMinerals < 25)
             greenMineralsCountRef.text = greenMinerals.ToString() + " / 25";
-        if(fuelDecreaseRate == true)
+
+        if (blueMinerals < 10)
+            blueMineralsCountRef.text = blueMinerals.ToString() + " / 10";
+
+        if (purpleMinerals < 5)
+            purpleMineralsCountRef.text = purpleMinerals.ToString() + " / 5";
+
+        if (fuelDecreaseRate == true)
         {
             StartCoroutine("DecreaseFuel");
         }
@@ -50,7 +64,7 @@ public class Game_Manager : MonoBehaviour
         if(fuel == 0)
         {
             print("RunOutOfFuel");
-            SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+            SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
         }
         if(hitPoints == 2)
         {
@@ -62,7 +76,7 @@ public class Game_Manager : MonoBehaviour
         }
         else if (hitPoints <= 0)
         {
-            SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+            SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
         }
 
         if(Input.GetKey(KeyCode.W) && checkWarpDelay == false)
@@ -82,6 +96,11 @@ public class Game_Manager : MonoBehaviour
                 animationReference.speed = 1;
                 StartCoroutine("WarpDelay");
             }
+        }
+
+        if(score >= 500)
+        {
+            wallRef.SetActive(true);
         }
 
         if (Input.GetKeyUp(KeyCode.W) || warpCharge == 0f)
@@ -109,6 +128,7 @@ public class Game_Manager : MonoBehaviour
     {
         if(checkWarpDelay == false)
         {
+            warpLightRef.SetActive(false);
             animationReference.Play("Recall", 0,0);
             spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D = !spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D;
             spaceShip2DRef.GetComponent<BoxCollider>().enabled = !spaceShip2DRef.GetComponent<BoxCollider>().enabled;
@@ -117,6 +137,7 @@ public class Game_Manager : MonoBehaviour
         }
         checkWarpDelay = true;
         yield return new WaitForSeconds(3f);
+        warpLightRef.SetActive(true);
         checkWarpDelay = false;
     }
 }

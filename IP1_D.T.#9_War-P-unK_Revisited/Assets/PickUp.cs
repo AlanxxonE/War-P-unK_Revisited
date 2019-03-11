@@ -26,8 +26,8 @@ public class PickUp : MonoBehaviour
                 }
                 else
                 {
-                    gMRef.greenMinerals += 1;
-                    gMRef.score += 20;
+                    Game_Manager.greenMinerals += 1;
+                    Game_Manager.score += 20;
                 }
                 Destroy(gameObject);
                 Destroy(mineralReference.mineralTarget2);

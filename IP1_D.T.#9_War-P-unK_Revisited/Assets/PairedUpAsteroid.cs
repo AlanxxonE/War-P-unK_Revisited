@@ -21,12 +21,26 @@ public class PairedUpAsteroid : MonoBehaviour
     public GameObject asteroidTarget1Reference;
     public GameObject asteroidTarget2Reference;
     public Pause_State pauseRef;
+    public Game_Manager gMRef;
 
     // Use this for initialization
     void Start ()
     {
         asteroidSize = Random.Range(2.0f, 5.0f);
-        asteroidSpeed = Random.Range(-0.1f, -0.3f);
+
+        if (Game_Manager.score >= 200)
+        {
+            asteroidSpeed = Random.Range(-0.2f, -0.4f);
+        }
+        else if( Game_Manager.score >= 100)
+        {
+            asteroidSpeed = Random.Range(-0.15f, -0.35f);
+        }
+        else
+        {
+            asteroidSpeed = Random.Range(-0.1f, -0.3f);
+        }
+
         offSetX = Random.Range(-3.0f, 3.0f);
         offSetY = Random.Range(-5.0f, 2.0f);
         mineralProbability = Random.Range(0, 2);

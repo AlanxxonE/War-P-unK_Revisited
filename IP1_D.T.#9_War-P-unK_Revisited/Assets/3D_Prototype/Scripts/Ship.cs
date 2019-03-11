@@ -11,10 +11,10 @@ public class Ship : MonoBehaviour
     public KeyCode moveDownKey = KeyCode.DownArrow;
     public KeyCode SpaceKey = KeyCode.Space;
 
-    bool canMoveLeft = true;
-    bool canMoveUp = true;
-    bool canMoveRight = true;
-    bool canMoveDown = true;
+    //bool canMoveLeft = true;
+    //bool canMoveUp = true;
+    //bool canMoveRight = true;
+    //bool canMoveDown = true;
 
     public bool checkActive3D = false;
 
@@ -38,22 +38,22 @@ public class Ship : MonoBehaviour
         bool isDownPressed = Input.GetKey(moveDownKey);
 
         
-        if (isRightPressed && canMoveRight)
+        if ((isRightPressed && checkActive3D == true) && !Input.GetKey(KeyCode.W))
         {
             if (gameObject.transform.position.x < 7.0f)
                 transform.Translate(speed, 0.0f, 0.0f);
         }
-        else if (isLeftPressed && canMoveLeft)
+        else if ((isLeftPressed && checkActive3D == true) && !Input.GetKey(KeyCode.W))
         {
             if (gameObject.transform.position.x > -7.0f) 
             transform.Translate(-speed, 0.0f, 0.0f);
         }
-        if (isUpPressed && canMoveUp)
+        if (isUpPressed)
         {
             if(gameObject.transform.position.y < - 48f)
             transform.Translate(0.0f, speed, 0.0f);
         }
-        else if (isDownPressed && canMoveDown)
+        else if (isDownPressed)
         {
             if(gameObject.transform.position.y > -54f)
             transform.Translate(0.0f, -speed, 0.0f);

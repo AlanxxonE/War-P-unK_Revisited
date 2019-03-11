@@ -6,15 +6,23 @@ public class WallSpawner : MonoBehaviour
 {
 
     public GameObject wallReference;
+    GameObject wallTemp;
 
 	void Start ()
     {
         InvokeRepeating("SpawnWall", 0f, 10f);
+        if (gameObject != null)
+            StartCoroutine("wallDelay");
     }
 	
 	void SpawnWall ()
     {
-        GameObject wallTemp = Instantiate(wallReference);
-        wallTemp.SetActive(true);
+        wallTemp = Instantiate(wallReference);
 	}
+
+    IEnumerator wallDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        wallTemp.SetActive(true);
+    }
 }
