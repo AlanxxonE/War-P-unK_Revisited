@@ -11,14 +11,13 @@ public class WallSpawner : MonoBehaviour
 	void Start ()
     {
         InvokeRepeating("SpawnWall", 0f, 10f);
-        if (gameObject != null)
-            StartCoroutine("wallDelay");
     }
 	
 	void SpawnWall ()
     {
         wallTemp = Instantiate(wallReference);
-	}
+        StartCoroutine("wallDelay");
+    }
 
     IEnumerator wallDelay()
     {

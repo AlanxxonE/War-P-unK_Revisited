@@ -30,11 +30,11 @@ public class PairedUpAsteroid : MonoBehaviour
 
         if (Game_Manager.score >= 200)
         {
-            asteroidSpeed = Random.Range(-0.2f, -0.4f);
+            asteroidSpeed = Random.Range(-0.3f, -0.5f);
         }
         else if( Game_Manager.score >= 100)
         {
-            asteroidSpeed = Random.Range(-0.15f, -0.35f);
+            asteroidSpeed = Random.Range(-0.2f, -0.4f);
         }
         else
         {

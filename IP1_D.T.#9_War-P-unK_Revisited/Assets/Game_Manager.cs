@@ -68,7 +68,7 @@ public class Game_Manager : MonoBehaviour
         }
         if(hitPoints == 2)
         {
-            lightRef.GetComponent<Light>().color = Color.magenta;
+            lightRef.GetComponent<Light>().color = Color.yellow;
         }
         else if( hitPoints == 1)
         {
@@ -98,7 +98,7 @@ public class Game_Manager : MonoBehaviour
             }
         }
 
-        if(score >= 500)
+        if(score >= 300)
         {
             wallRef.SetActive(true);
         }

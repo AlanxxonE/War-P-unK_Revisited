@@ -28,8 +28,11 @@ public class PairBlueMineral : MonoBehaviour
     {
         if (pauseRef.checkPause == false)
         {
-            blueLightRef.transform.position += new Vector3(blueMineralSpeed, 0);
-            blueMineralRef.transform.Translate(0, 0, blueMineralSpeed);
+            if (blueMineralRef != null)
+            {
+                blueLightRef.transform.position += new Vector3(blueMineralSpeed, 0);
+                blueMineralRef.transform.Translate(0, 0, blueMineralSpeed);
+            }
         }
     }
 

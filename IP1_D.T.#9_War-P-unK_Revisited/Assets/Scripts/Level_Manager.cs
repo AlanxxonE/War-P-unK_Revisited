@@ -10,6 +10,8 @@ public class Level_Manager : MonoBehaviour
     public Button startPrototypeV1;
     public Button startPrototypeV2;
     public Button exitPrototype;
+    public Button controlPanel;
+    public Button backMenu;
 
 	void Start ()
     {
@@ -20,6 +22,12 @@ public class Level_Manager : MonoBehaviour
             startPrototypeV2.onClick.AddListener(LoadV2);
         if (exitPrototype != null)
             exitPrototype.onClick.AddListener(ExitApp);
+
+        if (controlPanel != null)
+            controlPanel.onClick.AddListener(Controls);
+
+        if (backMenu != null)
+            backMenu.onClick.AddListener(ShowMenu);
 	}
 
 	void Update ()
@@ -30,6 +38,10 @@ public class Level_Manager : MonoBehaviour
   //      }
 	}
 
+    void ShowMenu()
+    {
+        SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+    }
     void LoadV2()
     {
         SceneManager.LoadScene("Prototype_V2", LoadSceneMode.Single);
@@ -42,5 +54,9 @@ public class Level_Manager : MonoBehaviour
     {
         Debug.Log("Exit");
         Application.Quit();
+    }
+    void Controls()
+    {
+        SceneManager.LoadScene("Controls_Panel", LoadSceneMode.Single);
     }
 }

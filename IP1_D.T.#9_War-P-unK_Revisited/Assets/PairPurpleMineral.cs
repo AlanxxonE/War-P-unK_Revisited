@@ -26,8 +26,11 @@ public class PairPurpleMineral : MonoBehaviour
     {
         if (pauseRef.checkPause == false)
         {
-            purpleMineralRef.transform.position += new Vector3(purpleMineralSpeed, 0);
-            purpleLightRef.transform.Translate(0, 0, purpleMineralSpeed);
+            if (purpleMineralRef != null)
+            {
+                purpleMineralRef.transform.position += new Vector3(purpleMineralSpeed, 0);
+                purpleLightRef.transform.Translate(0, 0, purpleMineralSpeed);
+            }
         }
     }
    

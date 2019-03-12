@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float BulletSpeed = 0.3f;
+    public float BulletSpeed = 0.5f;
     public Transform ship;
     public float maxDistance = 40f;
     

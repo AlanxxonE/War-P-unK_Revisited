@@ -19,7 +19,7 @@ public class Ship : MonoBehaviour
     public bool checkActive3D = false;
 
     public float speed = 0.2f;
-    public float bulletDelay = 0.2f;
+    public float bulletDelay = 0.1f;
 
     public GameObject Bullet;
     public Game_Manager gMRef;
