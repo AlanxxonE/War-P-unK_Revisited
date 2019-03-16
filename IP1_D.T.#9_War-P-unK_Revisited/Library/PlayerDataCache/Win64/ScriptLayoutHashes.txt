@@ -1,12 +1,13 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/User/Desktop/War-P-unK_Playable_Prototype/IP1_D.T.#9_War-P-unK.exe
+C:/Users/User/Desktop/Group_9_InterimPrototypes/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
+Assets/Scenes/Controls_Panel.unity
 Assets/Scenes/Prototype_V2.unity
 Assets/Scenes/Score_Menu.unity
-Assets/Scenes/Controls_Panel.unity
 SceneListEnd?
+c79d5952d21c45be8ff7faadb312bdf7 Assembly-CSharp.dll:.Showcase
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 a9e17e5d29bb10f9486d22b9bbe1c421 Assembly-CSharp.dll:.Minerals
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -206,4 +207,3 @@ a4741e4daaa0a2a43698aded24b6ab2f Assembly-CSharp.dll:.PairPurpleMineral
 f7c6ff33da20fed53aae2b51a651d8db Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 f37f7154f01d11e20660b8f4bfa9a0be Assembly-CSharp.dll:.Game_Manager
-c79d5952d21c45be8ff7faadb312bdf7 Assembly-CSharp.dll:.Showcase
