@@ -62,16 +62,36 @@ public class PairedUpAsteroid : MonoBehaviour
         {
             if ((mineralReference2D.mineralsCreation == true || mineralReference3D.mineralsCreation == true) && mineralProbability == 1)
             {
-                asteroidTarget1Reference.transform.position += new Vector3(-0.1f, 0);
-                asteroidTarget2Reference.transform.Translate(0, 0, -0.1f);
-                mineralTarget1Reference.SetActive(true);
-                mineralTarget2Reference.SetActive(true);
+                if (asteroidTarget1Reference != null)
+                {
+                    asteroidTarget1Reference.transform.position += new Vector3(-0.1f, 0);
+                    if (asteroidTarget2Reference.transform.position.z > gMRef.spaceShip3DRef.transform.position.z - 2)
+                        asteroidTarget2Reference.transform.Translate(0, 0, -0.1f);
+                    else
+                        asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed - 0.5f);
+                    if (mineralTarget1Reference != null)
+                    {
+                        mineralTarget1Reference.SetActive(true);
+                        if (mineralTarget2Reference != null)
+                        mineralTarget2Reference.SetActive(true);
+                    }
+                    else
+                    {
+                        Destroy(asteroidTarget1Reference);
+                        Destroy(asteroidTarget2Reference);
+                    }
+                }
             }
             else
             {
-                asteroidTarget1Reference.transform.position += new Vector3(asteroidSpeed, 0);
-                asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
-
+                if (asteroidTarget1Reference != null)
+                {
+                    asteroidTarget1Reference.transform.position += new Vector3(asteroidSpeed, 0);
+                    if (asteroidTarget2Reference.transform.position.z > gMRef.spaceShip3DRef.transform.position.z - 2)
+                        asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
+                    else
+                        asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed - 2);
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Controls_Panel.unity
+- path: Assets/Scenes/Prototype_V2.unity
   isLoaded: 1
   isActive: 1

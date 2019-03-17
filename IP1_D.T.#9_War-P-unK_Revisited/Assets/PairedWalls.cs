@@ -27,8 +27,14 @@ public class PairedWalls : MonoBehaviour
     {
         if (pauseRef.checkPause == false)
         {
-            wall2DRef.transform.position += new Vector3(wallSpeed, 0);
-            wall3DRef.transform.Translate(0, 0, wallSpeed);
+            if (wall2DRef != null)
+                wall2DRef.transform.position += new Vector3(wallSpeed, 0);
+            else
+                Destroy(wall2DRef);
+            if (wall3DRef != null)
+                wall3DRef.transform.Translate(0, 0, wallSpeed);
+            else
+                Destroy(wall3DRef);
         }
     }
 

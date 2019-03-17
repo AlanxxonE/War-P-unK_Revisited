@@ -9,7 +9,7 @@ public class PickUp : MonoBehaviour
 
     public Minerals mineralReference;
     public Game_Manager gMRef;
-
+    public HBSpawner hitBoxRef;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -29,6 +29,8 @@ public class PickUp : MonoBehaviour
                     Game_Manager.greenMinerals += 1;
                     Game_Manager.score += 20;
                 }
+                hitBoxRef.HitMarkerPopUp(gameObject.transform);
+
                 Destroy(gameObject);
                 Destroy(mineralReference.mineralTarget2);
             }

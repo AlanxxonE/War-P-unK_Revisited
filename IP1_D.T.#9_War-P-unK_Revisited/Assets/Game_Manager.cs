@@ -8,9 +8,11 @@ public class Game_Manager : MonoBehaviour
 {
     public Text fuelReference;
     public int fuel = 100;
+    int fuelTemp;
     bool fuelDecreaseRate = true;
     public Text scoreReference;
     public static int score = 0;
+    int scoreTemp;
     public GameObject fuelBarRef;
     //public Texture fuelBarTex;
 
@@ -35,10 +37,25 @@ public class Game_Manager : MonoBehaviour
     public float warpCharge;
     public GameObject warpParticleRef2D;
     public GameObject warpParticleRef3D;
+
+    public GameObject fuelNotifierRef;
+    public GameObject warpNotifierRef;
+    public GameObject scoreNotifieref;
+    public GameObject addFuelRef;
+    public GameObject HPRef;
+    public GameObject HPNotifierRef;
+
     // Use this for initialization
     void Start ()
     {
+        score = 0;
+        fuel = 100;
+        greenMinerals = 0;
+        blueMinerals = 0;
+        purpleMinerals = 0;
         animationReference.speed = 1000;
+        scoreTemp = Game_Manager.score;
+        fuelTemp = fuel;
 	}
 	
 	// Update is called once per frame
@@ -68,11 +85,13 @@ public class Game_Manager : MonoBehaviour
         }
         if(hitPoints == 2)
         {
-            lightRef.GetComponent<Light>().color = Color.yellow;
+            //lightRef.GetComponent<Light>().color = Color.yellow;
+            HPRef.GetComponent<Image>().color = Color.yellow;
         }
         else if( hitPoints == 1)
         {
-            lightRef.GetComponent<Light>().color = Color.red;
+            //lightRef.GetComponent<Light>().color = Color.red;
+            HPRef.GetComponent<Image>().color = Color.red;
         }
         else if (hitPoints <= 0)
         {
@@ -81,7 +100,14 @@ public class Game_Manager : MonoBehaviour
 
         if(Input.GetKey(KeyCode.W) && checkWarpDelay == false)
         {
-            warpCharge += 0.02f;
+            warpCharge += 0.01f;
+
+            if (Time.timeScale > 0.1f)
+                Time.timeScale -= 0.01f;
+            
+            if(Time.timeScale < 0.5f)
+                gameObject.GetComponent<Pause_State>().checkPause = true;
+
             if (spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D == true)
             {
                 warpParticleRef2D.SetActive(true);
@@ -93,6 +119,8 @@ public class Game_Manager : MonoBehaviour
 
             if (warpCharge > 1)
             {
+                gameObject.GetComponent<Pause_State>().checkPause = false;
+                Time.timeScale = 1.0f;
                 animationReference.speed = 1;
                 StartCoroutine("WarpDelay");
             }
@@ -105,11 +133,35 @@ public class Game_Manager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.W) || warpCharge == 0f)
         {
+            gameObject.GetComponent<Pause_State>().checkPause = false;
+            Time.timeScale = 1.0f;
             warpCharge = 0;
             warpParticleRef2D.SetActive(false);
             warpParticleRef3D.SetActive(false);
         }
-	}
+
+        if(scoreTemp != Game_Manager.score)
+        {
+            StartCoroutine("activateScoreNotifier");
+            scoreTemp = Game_Manager.score;
+        }
+        if(fuelTemp != fuel)
+        {
+            if (fuelTemp < fuel)
+                StartCoroutine("addFuelAnim");
+            fuelTemp = fuel;
+        }
+
+        if(fuel <= 20)
+        {
+            fuelNotifierRef.SetActive(true);
+            fuelNotifierRef.GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            fuelNotifierRef.GetComponent<Image>().color = Color.yellow;
+        }
+    }
 
     //private void OnGUI()
     //{
@@ -119,6 +171,7 @@ public class Game_Manager : MonoBehaviour
     IEnumerator DecreaseFuel()
     {
         fuelDecreaseRate = false;
+        StartCoroutine("activateFuelNotifier");
         fuel -= 10;
         yield return new WaitForSeconds(5f);
         fuelDecreaseRate = true;
@@ -137,7 +190,43 @@ public class Game_Manager : MonoBehaviour
         }
         checkWarpDelay = true;
         yield return new WaitForSeconds(3f);
+        StartCoroutine("activateWarpNotifier");
         warpLightRef.SetActive(true);
         checkWarpDelay = false;
+    }
+
+    IEnumerator activateFuelNotifier()
+    {
+        fuelNotifierRef.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        fuelNotifierRef.SetActive(false);
+    }
+
+    IEnumerator activateWarpNotifier()
+    {
+        warpNotifierRef.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        warpNotifierRef.SetActive(false);
+    }
+
+    IEnumerator activateScoreNotifier()
+    {
+        scoreNotifieref.SetActive(true);
+        yield return new WaitForSeconds(0.30f);
+        scoreNotifieref.SetActive(false);
+    }
+
+    IEnumerator addFuelAnim()
+    {
+        addFuelRef.SetActive(true);
+        yield return new WaitForSeconds(0.30f);
+        addFuelRef.SetActive(false);
+    }
+
+    IEnumerator HitPointAnim()
+    {
+        HPNotifierRef.SetActive(true);
+        yield return new WaitForSeconds(0.30f);
+        HPNotifierRef.SetActive(false);
     }
 }

@@ -11,6 +11,8 @@ public class PlayerMovements_V2 : MonoBehaviour
     public bool reload = true;
     public bool checkActive2D = true;
     public Game_Manager gMRef;
+    public CameraShake cameraRef;
+    public GameObject explosionRef;
 
     void Update()
     {
@@ -44,9 +46,22 @@ public class PlayerMovements_V2 : MonoBehaviour
     {
         if(other.gameObject.tag == "Asteroid" && checkActive2D == true)
         {
+            StartCoroutine("ExplosionAnim");
+            cameraRef.shakeAmount = 0.6f;
+            cameraRef.shakeDuration = 0;
+            cameraRef.shakeDuration = 1;
             gMRef.hitPoints -= 1;
+            gMRef.StartCoroutine("HitPointAnim");
             //SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
             print("died");
+            Destroy(other.transform.parent.gameObject);
         }
+    }
+
+    IEnumerator ExplosionAnim()
+    {
+        explosionRef.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        explosionRef.SetActive(false);
     }
 }
