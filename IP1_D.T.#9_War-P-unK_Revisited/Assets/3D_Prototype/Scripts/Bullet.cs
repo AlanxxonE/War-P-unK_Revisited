@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed = 0.5f;
     public Transform ship;
     public GameObject gMRef;
+
     //public float maxDistance = 5f;
 
     private void Start()

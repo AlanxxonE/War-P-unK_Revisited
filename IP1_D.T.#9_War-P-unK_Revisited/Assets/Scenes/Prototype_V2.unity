@@ -860,7 +860,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -893,13 +893,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205747234}
-  m_LocalRotation: {x: 0.3555827, y: 0.35941938, z: 0.6016843, w: -0.6183484}
+  m_LocalRotation: {x: 0.112067394, y: 0.10957244, z: 0.6898581, w: -0.70677483}
   m_LocalPosition: {x: -1, y: -62.4, z: -28.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 240.723, y: 538.055, z: 92.703995}
+  m_LocalEulerAnglesHint: {x: 341.965, y: 359.984, z: 271.39}
 --- !u!1 &256392840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d804577e63b73540b013dadab8ad6e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24b4896e15ef76c4c94e77ea1c3f2ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1523,6 +1523,7 @@ MonoBehaviour:
   asteroidReference: {fileID: 2131558044}
   gMRef: {fileID: 1148114215}
   pauseRef: {fileID: 1148114217}
+  destoryHit: 0
 --- !u!1 &400533292
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,6 +8162,7 @@ MonoBehaviour:
   asteroidReference: {fileID: 2131558044}
   gMRef: {fileID: 1148114215}
   pauseRef: {fileID: 1148114217}
+  destoryHit: 0
 --- !u!212 &858802297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8196,7 +8198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d804577e63b73540b013dadab8ad6e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24b4896e15ef76c4c94e77ea1c3f2ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17740,6 +17742,10 @@ MonoBehaviour:
   asteroidTarget2Reference: {fileID: 858802293}
   pauseRef: {fileID: 1148114217}
   gMRef: {fileID: 1148114215}
+  ast1: {fileID: 21300000, guid: 24b4896e15ef76c4c94e77ea1c3f2ba5, type: 3}
+  ast2: {fileID: 21300000, guid: 6ab1a56164ee66f4a89c296ea65bc0f3, type: 3}
+  ast3: {fileID: 21300000, guid: 8a2b7f0f4b61cc544bf6a41edbbbb0f5, type: 3}
+  ast4: {fileID: 21300000, guid: 9e96c7ed538271a499ae52e8d7e31ed1, type: 3}
 --- !u!1 &2139979139
 GameObject:
   m_ObjectHideFlags: 0

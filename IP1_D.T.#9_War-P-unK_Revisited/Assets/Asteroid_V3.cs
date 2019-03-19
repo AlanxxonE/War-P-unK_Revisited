@@ -9,6 +9,8 @@ public class Asteroid_V3 : MonoBehaviour
     public PairedUpAsteroid asteroidReference;
     public Game_Manager gMRef;
     public Pause_State pauseRef;
+
+    public int destoryHit;
     //public GameObject otherReference;
 
 	void Start ()
@@ -27,13 +29,18 @@ public class Asteroid_V3 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bullet")
-        {
+        { 
             Game_Manager.score += 10;
-            mineralsCreation = true;
-            asteroidReference.asteroidTarget1Reference.GetComponent<SpriteRenderer>().enabled = false;
-            asteroidReference.asteroidTarget1Reference.GetComponent<BoxCollider>().enabled = false;
-            asteroidReference.asteroidTarget2Reference.GetComponent<SpriteRenderer>().enabled = false;
-            asteroidReference.asteroidTarget2Reference.GetComponent<BoxCollider>().enabled = false;
+            if (destoryHit > 0)
+                destoryHit -= 1;
+            if (destoryHit == 0)
+            {
+                mineralsCreation = true;
+                asteroidReference.asteroidTarget1Reference.GetComponent<SpriteRenderer>().enabled = false;
+                asteroidReference.asteroidTarget1Reference.GetComponent<BoxCollider>().enabled = false;
+                asteroidReference.asteroidTarget2Reference.GetComponent<SpriteRenderer>().enabled = false;
+                asteroidReference.asteroidTarget2Reference.GetComponent<BoxCollider>().enabled = false;
+            }
             //otherReference = other.gameObject;
             //StartCoroutine("asteroidDestruction");
         }

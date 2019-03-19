@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet_V2 : MonoBehaviour
 {
     public GameObject gMRef;
+
     private void Start()
     {
         StartCoroutine("autoBulletDeath");

@@ -9,6 +9,7 @@ public class PairedUpAsteroid : MonoBehaviour
     public float offSetX;
     public float offSetY;
     int mineralProbability;
+    int asteroidSprite;
 
 
     //public Animator animatorReference;
@@ -23,10 +24,46 @@ public class PairedUpAsteroid : MonoBehaviour
     public Pause_State pauseRef;
     public Game_Manager gMRef;
 
+    public Sprite ast1;
+    public Sprite ast2;
+    public Sprite ast3;
+    public Sprite ast4;
+
     // Use this for initialization
     void Start ()
     {
         asteroidSize = Random.Range(2.0f, 5.0f);
+        asteroidSprite = Random.Range(0, 5);
+        
+        if(asteroidSprite <= 1)
+        {
+            mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast1;
+            mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast1;
+            mineralReference2D.destoryHit = 2;
+            mineralReference3D.destoryHit = 2;
+        }
+        else if(asteroidSprite <= 2)
+        {
+            mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast2;
+            mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast2;
+            mineralReference2D.destoryHit = 4;
+            mineralReference3D.destoryHit = 4;
+        }
+        else if (asteroidSprite <= 3)
+        {
+            mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast3;
+            mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast3;
+            mineralReference2D.destoryHit = 6;
+            mineralReference3D.destoryHit = 6;
+        }
+        else if (asteroidSprite <= 4)
+        {
+            mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast4;
+            mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast4;
+            mineralReference2D.destoryHit = 8;
+            mineralReference3D.destoryHit = 8;
+        }
+
 
         if (Game_Manager.score >= 200)
         {
