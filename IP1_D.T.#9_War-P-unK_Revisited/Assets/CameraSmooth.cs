@@ -25,17 +25,19 @@ public class CameraSmooth : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            if (moveUp < 10)
+            if (moveUp < 3)
             {
-                camera2DRef.transform.localRotation = Quaternion.Euler(-moveUp, 0, 0);
-                camera3DRef.transform.localRotation = Quaternion.Euler(-moveUp, 0, 0);
+                //camera2DRef.transform.localRotation = Quaternion.Euler(-moveUp, 0, 0);
+                camera2DRef.transform.localEulerAngles += new Vector3(-moveUp, 0, 0);
+                camera3DRef.transform.localEulerAngles += new Vector3(-moveUp, 0, 0);
                 moveUp += 0.2f;
+                print(moveUp);
             }
         }
         if (!Input.GetKey(KeyCode.UpArrow) && moveUp > 0)
         {
-            camera2DRef.transform.localRotation = Quaternion.Euler(-moveUp, 0, 0);
-            camera3DRef.transform.localRotation = Quaternion.Euler(-moveUp, 0, 0);
+            camera2DRef.transform.localEulerAngles -= new Vector3(-moveUp, 0, 0);
+            camera3DRef.transform.localEulerAngles -= new Vector3(-moveUp, 0, 0);
             moveUp -= 0.2f;
         }
 
@@ -43,15 +45,15 @@ public class CameraSmooth : MonoBehaviour {
         {
             if (moveDown < 10)
             {
-                camera2DRef.transform.localRotation = Quaternion.Euler(moveDown, 0, 0);
-                camera3DRef.transform.localRotation = Quaternion.Euler(moveDown, 0, 0);
+                camera2DRef.transform.localEulerAngles = new Vector3(moveDown, 0, 0);
+                camera3DRef.transform.localEulerAngles = new Vector3(moveDown, 0, 0);
                 moveDown += 0.2f;
             }
         }
         if(!Input.GetKey(KeyCode.DownArrow) && moveDown > 0)
         {
-            camera2DRef.transform.localRotation = Quaternion.Euler(moveDown, 0, 0);
-            camera3DRef.transform.localRotation = Quaternion.Euler(moveDown, 0, 0);
+            camera2DRef.transform.localEulerAngles = new Vector3(moveDown, 0, 0);
+            camera3DRef.transform.localEulerAngles = new Vector3(moveDown, 0, 0);
             moveDown -= 0.2f;
         }
 
@@ -59,13 +61,13 @@ public class CameraSmooth : MonoBehaviour {
         {
             if (moveLeft < 10)
             {
-                camera3DRef.transform.localRotation = Quaternion.Euler(0, -moveLeft, 0);
+                camera3DRef.transform.localEulerAngles = new Vector3(0, -moveLeft, 0);
                 moveLeft += 0.2f;
             }
         }
         if (!Input.GetKey(KeyCode.LeftArrow) && moveLeft > 0)
         {
-            camera3DRef.transform.localRotation = Quaternion.Euler(0, -moveLeft, 0);
+            camera3DRef.transform.localEulerAngles = new Vector3(0, -moveLeft, 0);
             moveLeft -= 0.2f;
         }
 
@@ -73,13 +75,13 @@ public class CameraSmooth : MonoBehaviour {
         {
             if (moveRight < 10)
             {
-                camera3DRef.transform.localRotation = Quaternion.Euler(0, moveRight, 0);
+                camera3DRef.transform.localEulerAngles = new Vector3(0, moveRight, 0);
                 moveRight += 0.2f;
             }
         }
         if (!Input.GetKey(KeyCode.RightArrow) && moveRight > 0)
         {
-            camera3DRef.transform.localRotation = Quaternion.Euler(0, moveRight, 0);
+            camera3DRef.transform.localEulerAngles = new Vector3(0, moveRight, 0);
             moveRight -= 0.2f;
         }
         //camera2DRef.localPosition = original2DPos;
