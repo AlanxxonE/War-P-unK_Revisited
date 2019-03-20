@@ -14,9 +14,12 @@ public class CameraSmooth : MonoBehaviour {
 
     bool movedUp = false;
     bool movedRight = false;
+    bool movedDown = false;
     Quaternion original2DRot;
     Quaternion original3DPos;
 
+    float axisY;
+    float axisX;
 
     void Start()
     {
@@ -99,52 +102,118 @@ public class CameraSmooth : MonoBehaviour {
         //temp.z = 0;
         //print(temp);
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        axisY = Input.GetAxis("Vertical");
+        axisX = Input.GetAxis("Horizontal");
+        print(camera2DRef.transform.localEulerAngles.x);
+
+
+        //if (axisY < 0 && !(camera2DRef.transform.localEulerAngles.x > 10)) { 
+        //    camera2DRef.transform.Rotate(-axisY * 0.2f, 0, 0);
+        //    camera3DRef.transform.Rotate(-axisY * 0.2f, axisX * 0.2f, 0);
+        //}
+        //else if (axisY > 0 && !(360 - camera2DRef.transform.localEulerAngles.x > 10) || camera2DRef.transform.localEulerAngles.x == 0)
+        //{
+        //    camera2DRef.transform.Rotate(-axisY * 0.2f, 0, 0);
+        //    camera3DRef.transform.Rotate(-axisY * 0.2f, axisX * 0.2f, 0);
+        //}
+
+        //if (axisX < 0 && !(camera3DRef.transform.localEulerAngles.y > 350))
+        //    camera3DRef.transform.Rotate(-axisX * 0.2f, 0, 0);
+
+        //if (axisX > 0 && !(camera3DRef.transform.localEulerAngles.y < 10))
+        //    camera3DRef.transform.Rotate(-axisX * 0.2f, 0, 0);
+
+        axisY = Input.GetAxis("Vertical");
+        axisX = -1*Input.GetAxis("Horizontal");
+        if (axisY > 0 && (camera2DRef.transform.rotation.x > -0.05))
         {
-            if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 2.9f)
-            {
-                camera2DRef.transform.Rotate(-0.1f,0,0);
-                camera3DRef.transform.Rotate(-0.1f, 0, 0);
-            }
-
-            movedUp = true;
+            camera2DRef.transform.Rotate(-axisY * 0.5f, 0, 0);
+            camera3DRef.transform.Rotate(-axisY * 0.5f, 0, 0);
         }
-
-        if ((!Input.GetKey(KeyCode.UpArrow)) && movedUp)
+        else if (axisY < 0 && (camera2DRef.transform.rotation.x < 0.05))
         {
-            camera2DRef.transform.Rotate(0.1f, 0, 0);
-            camera3DRef.transform.Rotate(0.1f, 0, 0);
-
-            if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 0)
-            {
-                movedUp = false;
-            }
+            camera2DRef.transform.Rotate(-axisY * 0.5f, 0, 0);
+            camera3DRef.transform.Rotate(-axisY * 0.5f, 0, 0);
         }
+        else if (axisX > 0 && (camera3DRef.transform.rotation.y > -0.05))
+            camera3DRef.transform.Rotate(0, -axisX * 0.5f, 0);
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            
-            if (Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y) <= 5)
-            {
-                camera3DRef.transform.Rotate(0,0.1f,0);
-            }
-
-            movedRight = true;
-        }
-
-        if ((!Input.GetKey(KeyCode.RightArrow)) && movedRight)
-        {
-            if (Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y) < 0.2f)
-            {
-
-                movedRight = false;
-            }
-
-            print(Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y));
-
-            camera3DRef.transform.Rotate(0,-0.1f,0);
+        else if (axisX < 0 && (camera3DRef.transform.rotation.y < 0.05))
+            camera3DRef.transform.Rotate(0, -axisX * 0.5f, 0);
 
 
-        }
+        //camera2DRef.transform.eulerAngles = new Vector3(Mathf.Clamp(camera2DRef.transform.eulerAngles.x, -10, 10), Mathf.Clamp(camera2DRef.transform.eulerAngles.y, -10, 10), 0);
+
+
+        //////////////////////////////////////////////////////////
+        //if (Input.GetKey(KeyCode.UpArrow) && movedDown == false)
+        //{
+        //    if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 5f)
+        //    {
+        //        camera2DRef.transform.Rotate(-0.4f,0,0);
+        //        camera3DRef.transform.Rotate(-0.4f, 0, 0);
+        //    }
+
+        //    movedUp = true;
+        //}
+
+        //if ((!Input.GetKey(KeyCode.UpArrow)) && movedUp && movedDown == false)
+        //{
+        //    camera2DRef.transform.Rotate(0.4f, 0, 0);
+        //    camera3DRef.transform.Rotate(0.4f, 0, 0);
+
+        //    if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 0.1f)
+        //    {
+        //        movedUp = false;
+        //    }
+        //}
+
+        //if (Input.GetKey(KeyCode.DownArrow) && movedUp == false)
+        //{
+        //    if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 4f)
+        //    {
+        //        camera2DRef.transform.Rotate(0.2f, 0, 0);
+        //        camera3DRef.transform.Rotate(0.2f, 0, 0);
+        //    }
+
+        //    movedDown = true;
+        //}
+
+        //if ((!Input.GetKey(KeyCode.DownArrow)) && movedDown && movedUp == false)
+        //{
+        //    camera2DRef.transform.Rotate(-0.2f, 0, 0);
+        //    camera3DRef.transform.Rotate(-0.2f, 0, 0);
+
+        //    if (Quaternion.Angle(camera2DRef.rotation, original2DRot) <= 0.1f)
+        //    {
+        //        movedDown = false;
+        //    }
+        //}
+
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+
+        //    if (Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y) <= 5)
+        //    {
+        //        camera3DRef.transform.Rotate(0,0.2f,0);
+        //    }
+
+        //    movedRight = true;
+        //}
+
+        //if ((!Input.GetKey(KeyCode.RightArrow)) && movedRight)
+        //{
+        //    if (Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y) < 1)
+        //    {
+
+        //        movedRight = false;
+        //    }
+
+        //    print(Mathf.Abs((camera3DRef.rotation.eulerAngles.y % 360) - original3DPos.eulerAngles.y));
+
+        //    camera3DRef.transform.Rotate(0,-0.2f,0);
+
+
+        //}
     }
 }
