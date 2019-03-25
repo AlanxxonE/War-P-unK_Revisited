@@ -45,6 +45,7 @@ public class Game_Manager : MonoBehaviour
     public GameObject HPRef;
     public GameObject HPNotifierRef;
 
+    public GameObject screenWipeRef;
     // Use this for initialization
     void Start ()
     {

@@ -46,36 +46,36 @@ public class PairedUpAsteroid : MonoBehaviour
         {
             mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast2;
             mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast2;
-            mineralReference2D.destoryHit = 4;
-            mineralReference3D.destoryHit = 4;
+            mineralReference2D.destoryHit = 3;
+            mineralReference3D.destoryHit = 3;
         }
         else if (asteroidSprite <= 3)
         {
             mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast3;
             mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast3;
-            mineralReference2D.destoryHit = 6;
-            mineralReference3D.destoryHit = 6;
+            mineralReference2D.destoryHit = 4;
+            mineralReference3D.destoryHit = 4;
         }
         else if (asteroidSprite <= 4)
         {
             mineralReference2D.GetComponent<SpriteRenderer>().sprite = ast4;
             mineralReference3D.GetComponent<SpriteRenderer>().sprite = ast4;
-            mineralReference2D.destoryHit = 8;
-            mineralReference3D.destoryHit = 8;
+            mineralReference2D.destoryHit = 5;
+            mineralReference3D.destoryHit = 5;
         }
 
 
-        if (Game_Manager.score >= 200)
+        if (Game_Manager.score >= 1000)
         {
-            asteroidSpeed = Random.Range(-0.3f, -0.5f);
+            asteroidSpeed = Random.Range(-0.3f, -0.4f);
         }
-        else if( Game_Manager.score >= 100)
+        else if( Game_Manager.score >= 500)
         {
-            asteroidSpeed = Random.Range(-0.2f, -0.4f);
+            asteroidSpeed = Random.Range(-0.2f, -0.3f);
         }
         else
         {
-            asteroidSpeed = Random.Range(-0.1f, -0.3f);
+            asteroidSpeed = Random.Range(-0.1f, -0.2f);
         }
 
         offSetX = Random.Range(-3.0f, 3.0f);
@@ -124,10 +124,13 @@ public class PairedUpAsteroid : MonoBehaviour
                 if (asteroidTarget1Reference != null)
                 {
                     asteroidTarget1Reference.transform.position += new Vector3(asteroidSpeed, 0);
-                    if (asteroidTarget2Reference.transform.position.z > gMRef.spaceShip3DRef.transform.position.z - 2)
-                        asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
-                    else
-                        asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed - 2);
+                    if (asteroidTarget2Reference != null)
+                    {
+                        if (asteroidTarget2Reference.transform.position.z > gMRef.spaceShip3DRef.transform.position.z - 2)
+                            asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed);
+                        else
+                            asteroidTarget2Reference.transform.Translate(0, 0, asteroidSpeed - 2);
+                    }
                 }
             }
         }

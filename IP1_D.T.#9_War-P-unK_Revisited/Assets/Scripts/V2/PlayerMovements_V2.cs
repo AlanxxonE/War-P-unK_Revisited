@@ -14,6 +14,8 @@ public class PlayerMovements_V2 : MonoBehaviour
     public CameraShake cameraRef;
     public GameObject explosionRef;
 
+    public GameObject screenWipeRef;
+    public GameObject screenWipe3DRef;
     void Update()
     {
 
@@ -46,6 +48,8 @@ public class PlayerMovements_V2 : MonoBehaviour
     {
         if(other.gameObject.tag == "Asteroid" && checkActive2D == true)
         {
+            screenWipeRef.SetActive(true);
+            screenWipe3DRef.SetActive(true);
             StartCoroutine("ExplosionAnim");
             cameraRef.shakeAmount = 0.6f;
             cameraRef.shakeDuration = 0;

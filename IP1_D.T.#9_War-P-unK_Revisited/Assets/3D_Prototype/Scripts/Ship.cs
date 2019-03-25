@@ -27,6 +27,8 @@ public class Ship : MonoBehaviour
     public CameraSwitcher cameraSwitcherReference;
     public GameObject explosionRef;
 
+    public GameObject screenWipeRef;
+    public GameObject screenWipe3DRef;
     private void Start()
     {
         InvokeRepeating("FireBullet", 0, bulletDelay);
@@ -129,6 +131,8 @@ public class Ship : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid" && checkActive3D == true)
         {
+            screenWipeRef.SetActive(true);
+            screenWipe3DRef.SetActive(true);
             StartCoroutine("ExplosionAnim");
             cameraRef.shakeAmount = 0.6f;
             cameraRef.shakeDuration = 0;

@@ -104,7 +104,7 @@ public class CameraSmooth : MonoBehaviour {
 
         axisY = Input.GetAxis("Vertical");
         axisX = Input.GetAxis("Horizontal");
-        print(camera2DRef.transform.localEulerAngles.x);
+        //print(camera2DRef.transform.localEulerAngles.x);
 
 
         //if (axisY < 0 && !(camera2DRef.transform.localEulerAngles.x > 10)) { 
