@@ -21,7 +21,7 @@ public class BulletSpawner_V2 : MonoBehaviour
         bulletTemp.SetActive(true);
         bulletTemp.transform.position = bulletPosition.position;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
 
         playerReference.reload = true;
     }

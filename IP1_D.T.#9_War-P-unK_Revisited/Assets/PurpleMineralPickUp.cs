@@ -15,7 +15,7 @@ public class PurpleMineralPickUp : MonoBehaviour
             {
                 Game_Manager.purpleMinerals += 1;
                 Game_Manager.score += 200;
-                Destroy(gameObject);
+                Destroy(gameObject.transform.parent.gameObject);
             }
         }
     }

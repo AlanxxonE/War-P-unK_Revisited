@@ -10,7 +10,7 @@ public class WallSpawner : MonoBehaviour
 
 	void Start ()
     {
-        InvokeRepeating("SpawnWall", 0f, 10f);
+        InvokeRepeating("SpawnWall", 0f, 20f);
     }
 	
 	void SpawnWall ()

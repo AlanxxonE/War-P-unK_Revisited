@@ -100,10 +100,14 @@
     <Compile Include="Assets\Scripts\V1\TextureMovement_V1.cs" />
     <Compile Include="Assets\Scripts\V2\Asteroid_Spawner_V2.cs" />
     <Compile Include="Assets\Scripts\V2\Asteroid_V2.cs" />
+    <Compile Include="Assets\Scripts\V2\Bullet_Shotgun.cs" />
+    <Compile Include="Assets\Scripts\V2\Bullet_Torpedo.cs" />
     <Compile Include="Assets\Scripts\V2\Bullet_V2.cs" />
     <Compile Include="Assets\Scripts\V2\BulletSpawner_V2.cs" />
     <Compile Include="Assets\Scripts\V2\PlayerMovements_V2.cs" />
+    <Compile Include="Assets\Scripts\V2\ShotgunSpawner.cs" />
     <Compile Include="Assets\Scripts\V2\TextureMovement_V2.cs" />
+    <Compile Include="Assets\Scripts\V2\TorpedoSpawner.cs" />
     <Compile Include="Assets\Showcase.cs" />
     <Compile Include="Assets\Test2D3DSpawner.cs" />
     <Compile Include="Assets\WallSpawner.cs" />

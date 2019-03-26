@@ -15,7 +15,7 @@ public class BlueMineralPickUp : MonoBehaviour
             {
                 Game_Manager.blueMinerals += 1;
                 Game_Manager.score += 100;
-                Destroy(gameObject);
+                Destroy(gameObject.transform.parent.gameObject);
             }
         }
     }

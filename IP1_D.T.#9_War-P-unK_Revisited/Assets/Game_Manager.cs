@@ -45,7 +45,12 @@ public class Game_Manager : MonoBehaviour
     public GameObject HPRef;
     public GameObject HPNotifierRef;
 
-    public GameObject screenWipeRef;
+    public GameObject bulletSpawnerRef;
+    public GameObject bulletSlotRef;
+    public GameObject torpedoSpawnerRef;
+    public GameObject torpedoSlotRef;
+    public GameObject shotgunSpawnerRef;
+    public GameObject shotgunSlotRef;
     // Use this for initialization
     void Start ()
     {
@@ -64,14 +69,20 @@ public class Game_Manager : MonoBehaviour
     {
         fuelReference.text = fuel.ToString();
         scoreReference.text = score.ToString();
-        if (greenMinerals < 25)
-            greenMineralsCountRef.text = greenMinerals.ToString() + " / 25";
+        if (greenMinerals <= 10)
+            greenMineralsCountRef.text = greenMinerals.ToString() + " / 10";
+        else
+            greenMinerals = 10;
 
-        if (blueMinerals < 10)
-            blueMineralsCountRef.text = blueMinerals.ToString() + " / 10";
+        if (blueMinerals <= 3)
+            blueMineralsCountRef.text = blueMinerals.ToString() + " / 3";
+        else
+            blueMinerals = 3;
 
-        if (purpleMinerals < 5)
-            purpleMineralsCountRef.text = purpleMinerals.ToString() + " / 5";
+        if (purpleMinerals <= 1)
+            purpleMineralsCountRef.text = purpleMinerals.ToString() + " / 1";
+        else
+            purpleMinerals = 1;
 
         if (fuelDecreaseRate == true)
         {
@@ -162,6 +173,88 @@ public class Game_Manager : MonoBehaviour
         {
             fuelNotifierRef.GetComponent<Image>().color = Color.yellow;
         }
+
+        if (spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+
+                if (bulletSpawnerRef.activeSelf == false)
+                {
+                    spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
+                    bulletSpawnerRef.SetActive(true);
+                    bulletSlotRef.SetActive(true);
+                }
+                if (torpedoSpawnerRef.activeSelf == true)
+                {
+                    torpedoSpawnerRef.SetActive(false);
+                    torpedoSlotRef.SetActive(false);
+                }
+                if (shotgunSpawnerRef.activeSelf == true)
+                {
+                    shotgunSpawnerRef.SetActive(false);
+                    shotgunSlotRef.SetActive(false);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+
+                if (torpedoSpawnerRef.activeSelf == false)
+                {
+                    spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
+                    torpedoSpawnerRef.SetActive(true);
+                    torpedoSlotRef.SetActive(true);
+                }
+                if (bulletSpawnerRef.activeSelf == true)
+                {
+                    bulletSpawnerRef.SetActive(false);
+                    bulletSlotRef.SetActive(false);
+                }
+                if (shotgunSpawnerRef.activeSelf == true)
+                {
+                    shotgunSpawnerRef.SetActive(false);
+                    shotgunSlotRef.SetActive(false);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                if (shotgunSpawnerRef.activeSelf == false)
+                {
+                    spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
+                    shotgunSpawnerRef.SetActive(true);
+                    shotgunSlotRef.SetActive(true);
+                }
+                if (bulletSpawnerRef.activeSelf == true)
+                {
+                    bulletSpawnerRef.SetActive(false);
+                    bulletSlotRef.SetActive(false);
+                }
+                if (torpedoSpawnerRef.activeSelf == true)
+                {
+                    torpedoSpawnerRef.SetActive(false);
+                    torpedoSlotRef.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            if (bulletSpawnerRef.activeSelf == false)
+            {
+                spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
+                bulletSpawnerRef.SetActive(true);
+                bulletSlotRef.SetActive(true);
+            }
+            if (torpedoSpawnerRef.activeSelf == true)
+            {
+                torpedoSpawnerRef.SetActive(false);
+                torpedoSlotRef.SetActive(false);
+            }
+            if (shotgunSpawnerRef.activeSelf == true)
+            {
+                shotgunSpawnerRef.SetActive(false);
+                shotgunSlotRef.SetActive(false);
+            }
+        }
     }
 
     //private void OnGUI()
@@ -174,7 +267,7 @@ public class Game_Manager : MonoBehaviour
         fuelDecreaseRate = false;
         StartCoroutine("activateFuelNotifier");
         fuel -= 10;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         fuelDecreaseRate = true;
     }
 
