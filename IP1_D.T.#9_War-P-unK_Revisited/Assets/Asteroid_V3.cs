@@ -11,9 +11,13 @@ public class Asteroid_V3 : MonoBehaviour
     public Pause_State pauseRef;
 
     public int destoryHit;
+
+    public GameObject explosionRef2D;
+    public GameObject explosionRef3D;
+
     //public GameObject otherReference;
 
-	void Start ()
+    void Start ()
     {
         StartCoroutine("autoAsteroidDeath");
     }
@@ -40,6 +44,11 @@ public class Asteroid_V3 : MonoBehaviour
                 asteroidReference.asteroidTarget1Reference.GetComponent<BoxCollider>().enabled = false;
                 asteroidReference.asteroidTarget2Reference.GetComponent<SpriteRenderer>().enabled = false;
                 asteroidReference.asteroidTarget2Reference.GetComponent<BoxCollider>().enabled = false;
+
+                if(explosionRef2D != null)
+                explosionRef2D.SetActive(true);
+                if(explosionRef3D != null)
+                explosionRef3D.SetActive(true);
             }
             //otherReference = other.gameObject;
             //StartCoroutine("asteroidDestruction");

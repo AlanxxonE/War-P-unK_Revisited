@@ -71,6 +71,7 @@
     <Compile Include="Assets\BlueSpawner.cs" />
     <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\CameraSmooth.cs" />
+    <Compile Include="Assets\CutSceneTimer.cs" />
     <Compile Include="Assets\DimensionalMineral.cs" />
     <Compile Include="Assets\FinalCheckList.cs" />
     <Compile Include="Assets\FinalScore.cs" />

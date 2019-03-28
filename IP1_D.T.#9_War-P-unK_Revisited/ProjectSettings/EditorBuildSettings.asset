@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Controls_Panel.unity
     guid: 16af660ecf08b0240b6d9cfd0b864d83
   - enabled: 1
+    path: Assets/Scenes/CutScene1.unity
+    guid: 32adcc4bedcf915458c97aaf93e533da
+  - enabled: 1
     path: Assets/Scenes/Prototype_V2.unity
     guid: ce8dd8c6f0e1ef74ba58fcd88f2847e6
   - enabled: 1

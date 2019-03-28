@@ -1,9 +1,10 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/User/Desktop/War-P-unK_PolishedV2/IP1_D.T.#9_War-P-unK.exe
+C:/Users/User/Desktop/War-P-unK_BetaVersion1/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Controls_Panel.unity
+Assets/Scenes/CutScene1.unity
 Assets/Scenes/Prototype_V2.unity
 Assets/Scenes/Score_Menu.unity
 SceneListEnd?
@@ -30,7 +31,7 @@ c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.BulletSpawner_V2
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 8c277d1d187af7448fec3dd6c53b98de Assembly-CSharp.dll:.CameraSwitcher
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
-867f3d1e0c221faa69d307667740042c Assembly-CSharp.dll:.Asteroid_V3
+3b20c88932e79efdef8ed282fda45723 Assembly-CSharp.dll:.Asteroid_V3
 a022b12fc574d16fcd9cb19e071332d2 Assembly-CSharp.dll:.DimensionalMineral
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -99,6 +100,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 d3baf945a28bf6b4a4706c8193e7459e Assembly-CSharp.dll:.Asteroid_V2
 763414f9c6460c9bb1b80005f73894fc Assembly-CSharp.dll:.PurpleSpawner
+5f0c9c9facba107f0370955fb33883f7 Assembly-CSharp.dll:.Bullet_Torpedo
 e9655f5a51b276b1754b519a1e40b44e Assembly-CSharp.dll:.FinalCheckList
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -132,7 +134,9 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 c15e18c15544b494e6674cbede7d96a5 Assembly-CSharp.dll:.Enemy
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.ShotgunSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.HitBox
+b0be9dab5b3880f69e97a159d7b499cc Assembly-CSharp.dll:.Bullet_Shotgun
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -142,6 +146,8 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ScreenWipe3D
+1af7220b14b8cbda7f8b48d097004442 Assembly-CSharp.dll:.CutSceneTimer
+c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.TorpedoSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Bullet_V1
 d300657c624d28da48fe86aef28d2f52 Assembly-CSharp.dll:.PairedWalls
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
@@ -202,7 +208,7 @@ fd18e9bbcfe15418b5fef9a84272898b Assembly-CSharp.dll:.PlayerMovements_V2
 ddbfa37939398fa80bedbe439208ecb4 Assembly-CSharp.dll:.PlayerCollision_V1
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-b3fe9bd3d7c191fdf69779e9807a7c9e Assembly-CSharp.dll:.Pause_State
+e23ef5560ac9c30a330c9652b3dcfa25 Assembly-CSharp.dll:.Pause_State
 1c1b7e2af9de1697a63dfbcdfeec9292 Assembly-CSharp.dll:.HBSpawner
 a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Test2D3DSpawner
 14c3c87b6d17a2003857c45e2827be3d Assembly-CSharp.dll:.EnemySpawner
@@ -210,10 +216,6 @@ a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Test2D3DSpawner
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 4b198f58a1da9b94c343f4fa0ae60ad9 Assembly-CSharp.dll:.CameraSmooth
 a4741e4daaa0a2a43698aded24b6ab2f Assembly-CSharp.dll:.PairPurpleMineral
-f7c6ff33da20fed53aae2b51a651d8db Assembly-CSharp.dll:.Level_Manager
+a1ee8b9048cceb537e3ba044780800d9 Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-81203427fda0cc2753618d1dc787b501 Assembly-CSharp.dll:.Game_Manager
-5f0c9c9facba107f0370955fb33883f7 Assembly-CSharp.dll:.Bullet_Torpedo
-c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.TorpedoSpawner
-b0be9dab5b3880f69e97a159d7b499cc Assembly-CSharp.dll:.Bullet_Shotgun
-c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.ShotgunSpawner
+18c8bbb8cdf659045493d991008c654e Assembly-CSharp.dll:.Game_Manager

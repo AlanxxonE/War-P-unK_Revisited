@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pause_State : MonoBehaviour
 {
+    public bool cutSceneCheck = false;
     public bool checkPause = false;
     public MonoBehaviour spaceship2DReference;
     public MonoBehaviour spaceship3DReference;
@@ -20,7 +21,7 @@ public class Pause_State : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || cutSceneCheck)
         {
             checkPause = !checkPause;
             if (checkPause == true)
@@ -31,6 +32,7 @@ public class Pause_State : MonoBehaviour
                 cameraRef.enabled = false;
                 gMRef.enabled = false;
                 timeUI.SetActive(true);
+                cutSceneCheck = false;
             }
 
 

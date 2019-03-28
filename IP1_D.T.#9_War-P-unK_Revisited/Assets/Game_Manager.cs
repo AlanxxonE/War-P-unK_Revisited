@@ -23,6 +23,8 @@ public class Game_Manager : MonoBehaviour
     public GameObject warpLightRef;
 
     public GameObject wallRef;
+    public Material switchBackground;
+    public GameObject backgroundRef;
 
     public Text greenMineralsCountRef;
     public static int greenMinerals = 0;
@@ -44,6 +46,10 @@ public class Game_Manager : MonoBehaviour
     public GameObject addFuelRef;
     public GameObject HPRef;
     public GameObject HPNotifierRef;
+
+    public Sprite standardShip;
+    public Sprite powerUpShip;
+    public GameObject fadeInDeath;
 
     public GameObject bulletSpawnerRef;
     public GameObject bulletSlotRef;
@@ -107,7 +113,7 @@ public class Game_Manager : MonoBehaviour
         }
         else if (hitPoints <= 0)
         {
-            SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
+            StartCoroutine("PlayerDeath");
         }
 
         if(Input.GetKey(KeyCode.W) && checkWarpDelay == false)
@@ -152,6 +158,11 @@ public class Game_Manager : MonoBehaviour
             warpParticleRef3D.SetActive(false);
         }
 
+        //if(score >= 800)
+        //{
+        //    backgroundRef.GetComponent<MeshRenderer>().material = switchBackground;
+        //}
+
         if(scoreTemp != Game_Manager.score)
         {
             StartCoroutine("activateScoreNotifier");
@@ -178,6 +189,8 @@ public class Game_Manager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
+                if(spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != standardShip)
+                spaceShip2DRef.GetComponent<SpriteRenderer>().sprite = standardShip;
 
                 if (bulletSpawnerRef.activeSelf == false)
                 {
@@ -199,6 +212,9 @@ public class Game_Manager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
 
+                if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != powerUpShip)
+                    spaceShip2DRef.GetComponent<SpriteRenderer>().sprite = powerUpShip;
+
                 if (torpedoSpawnerRef.activeSelf == false)
                 {
                     spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
@@ -218,6 +234,10 @@ public class Game_Manager : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
+
+                if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != powerUpShip)
+                    spaceShip2DRef.GetComponent<SpriteRenderer>().sprite = powerUpShip;
+
                 if (shotgunSpawnerRef.activeSelf == false)
                 {
                     spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
@@ -238,6 +258,9 @@ public class Game_Manager : MonoBehaviour
         }
         else
         {
+            if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != standardShip)
+                spaceShip2DRef.GetComponent<SpriteRenderer>().sprite = standardShip;
+
             if (bulletSpawnerRef.activeSelf == false)
             {
                 spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
@@ -289,6 +312,12 @@ public class Game_Manager : MonoBehaviour
         checkWarpDelay = false;
     }
 
+    IEnumerator PlayerDeath()
+    {
+        fadeInDeath.SetActive(true);
+        yield return new WaitForSeconds(0.9f);
+        SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
+    }
     IEnumerator activateFuelNotifier()
     {
         fuelNotifierRef.SetActive(true);
