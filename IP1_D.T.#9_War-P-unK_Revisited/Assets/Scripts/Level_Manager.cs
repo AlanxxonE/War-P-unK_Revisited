@@ -18,10 +18,14 @@ public class Level_Manager : MonoBehaviour
     public GameObject startImageRef;
     static bool canStart = false;
 
+    bool boughtTorpedo = false;
+    bool boughtShotgun = false;
     public Button unlockTorpedoRef;
     public Button unlockShotgunRef;
     public Image TPRef;
     public Image SGRef;
+    public GameObject torpedoPrice;
+    public GameObject shotgunPrice;
 
 	void Start ()
     {
@@ -44,7 +48,16 @@ public class Level_Manager : MonoBehaviour
 
         if(currencyTextRef != null)
         currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
-	}
+
+        if (Game_Manager.torpedoUnlocked == true)
+        {
+            Destroy(torpedoPrice);
+        }
+        if (Game_Manager.shotgunUnlocked == true)
+        {
+            Destroy(shotgunPrice);
+        }
+    }
 
 	void Update ()
     {
@@ -68,15 +81,81 @@ public class Level_Manager : MonoBehaviour
             startImageRef.GetComponent<Image>().color = Color.grey;
         }
 
-        if(unlockTorpedoRef != null && Game_Manager.radiumCurrency < 100)
+        if(unlockTorpedoRef != null && Game_Manager.radiumCurrency < 10000)
         {
             unlockTorpedoRef.GetComponent<Image>().color = Color.grey;
+        }
+
+        if(unlockShotgunRef != null && Game_Manager.radiumCurrency < 20000)
+        {
+            unlockShotgunRef.GetComponent<Image>().color = Color.grey;
+        }
+
+        if(TPRef != null && Game_Manager.torpedoUnlocked == false)
+        {
+            TPRef.color = Color.grey;
+        }
+        if(SGRef != null && Game_Manager.shotgunUnlocked == false)
+        {
+            SGRef.color = Color.grey;
+        }
+
+        if (Game_Manager.radiumCurrency >= 10000 && Game_Manager.torpedoUnlocked == false && unlockTorpedoRef != null)
+        {
+            unlockTorpedoRef.onClick.AddListener(unlockTorpedo);
+        }
+        if (Game_Manager.radiumCurrency >= 20000 && Game_Manager.shotgunUnlocked == false && unlockShotgunRef != null)
+        {
+            unlockShotgunRef.onClick.AddListener(unlockShotgun);
+        }
+        if (Game_Manager.torpedoUnlocked == true && unlockTorpedoRef != null)
+        {
+            StartCoroutine("TorpedoPriceFade");
+            unlockTorpedoRef.onClick.RemoveAllListeners();
+            unlockTorpedoRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+            unlockTorpedoRef.GetComponent<Image>().color = Color.yellow;
+        }
+        if (Game_Manager.shotgunUnlocked == true && unlockShotgunRef != null)
+        {
+            StartCoroutine("ShotgunPriceFade");
+            unlockShotgunRef.onClick.RemoveAllListeners();
+            unlockShotgunRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+            unlockShotgunRef.GetComponent<Image>().color = Color.yellow;
         }
     }
 
     public void unlockTorpedo()
     {
+        if (boughtTorpedo == false)
+        {
+            Game_Manager.radiumCurrency -= 10000;
+            boughtTorpedo = true;
+        }
 
+        if (currencyTextRef != null)
+            currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
+        unlockTorpedoRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+        unlockTorpedoRef.GetComponent<Image>().color = Color.yellow;
+        TPRef.color = Color.white;
+
+        Game_Manager.torpedoUnlocked = true;
+    }
+
+    public void unlockShotgun()
+    {
+        if (boughtShotgun == false)
+        {
+            Game_Manager.radiumCurrency -= 20000;
+            boughtShotgun = true;
+        }
+
+        if (currencyTextRef != null)
+            currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
+        unlockShotgunRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+        unlockShotgunRef.GetComponent<Image>().color = Color.yellow;
+        SGRef.color = Color.white;
+
+        Game_Manager.shotgunUnlocked = true;
     }
     public void StartFromCutScene()
     {
@@ -111,5 +190,24 @@ public class Level_Manager : MonoBehaviour
     void loadShop()
     {
         SceneManager.LoadScene("Market_Place", LoadSceneMode.Single);
+    }
+
+    IEnumerator TorpedoPriceFade()
+    {
+        if (torpedoPrice != null)
+            torpedoPrice.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        if (torpedoPrice != null)
+            Destroy(torpedoPrice);
+    }
+
+    IEnumerator ShotgunPriceFade()
+    {
+        if (shotgunPrice != null)
+            shotgunPrice.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        if (shotgunPrice != null)
+            Destroy(shotgunPrice);
+
     }
 }

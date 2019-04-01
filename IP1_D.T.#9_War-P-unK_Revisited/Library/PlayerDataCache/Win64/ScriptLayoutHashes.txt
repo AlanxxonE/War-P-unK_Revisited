@@ -1,9 +1,10 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/User/Desktop/War-P-unK_BetaVersion2.0/IP1_D.T.#9_War-P-unK.exe
+C:/Users/User/Desktop/War-P-unK_OpenBeta/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Controls_Panel.unity
+Assets/Scenes/Market_Place.unity
 Assets/Scenes/CutScene1.unity
 Assets/Scenes/Prototype_V2.unity
 Assets/Scenes/Score_Menu.unity
@@ -150,6 +151,7 @@ dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.TorpedoSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Bullet_V1
 d300657c624d28da48fe86aef28d2f52 Assembly-CSharp.dll:.PairedWalls
+385bc9b2e1be6938b61dbed98b0d5449 Assembly-CSharp.dll:.CircuitSpawner
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Asteroid_Spawner_V2
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
@@ -173,6 +175,7 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 4dbfe9c506d999f8c34c226f62b237d3 Assembly-CSharp.dll:.PickUp
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CircuitPropeties
 08afa3362ff6315d09dae8bbcf2050c7 Assembly-CSharp.dll:.PlayerMovements_V1
 72a8523b432c0a5317826b7a9e0a0e79 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
@@ -216,8 +219,6 @@ a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Test2D3DSpawner
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 4b198f58a1da9b94c343f4fa0ae60ad9 Assembly-CSharp.dll:.CameraSmooth
 a4741e4daaa0a2a43698aded24b6ab2f Assembly-CSharp.dll:.PairPurpleMineral
-a1ee8b9048cceb537e3ba044780800d9 Assembly-CSharp.dll:.Level_Manager
+7c89a35dd5c48fb50eda29359162ad15 Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-18c8bbb8cdf659045493d991008c654e Assembly-CSharp.dll:.Game_Manager
-385bc9b2e1be6938b61dbed98b0d5449 Assembly-CSharp.dll:.CircuitSpawner
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CircuitPropeties
+08dbd6f5e88dda353e66eeadbfd0541d Assembly-CSharp.dll:.Game_Manager

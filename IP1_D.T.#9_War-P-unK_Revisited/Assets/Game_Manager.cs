@@ -244,7 +244,7 @@ public class Game_Manager : MonoBehaviour
                     shotgunSlotRef.SetActive(false);
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && torpedoUnlocked == true)
             {
 
                 if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != powerUpShip)
@@ -267,7 +267,7 @@ public class Game_Manager : MonoBehaviour
                     shotgunSlotRef.SetActive(false);
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && shotgunUnlocked == true)
             {
 
                 if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != powerUpShip)
