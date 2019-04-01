@@ -10,6 +10,7 @@ public class FinalCheckList : MonoBehaviour
     public GameObject PM;
 
     public GameObject congrats;
+    public GameObject secretEnding;
     //public GameObject outOfFuel;
 	// Use this for initialization
 	void Start ()
@@ -20,6 +21,7 @@ public class FinalCheckList : MonoBehaviour
 
         if(Game_Manager.greenMinerals == 10 && Game_Manager.blueMinerals == 3 && Game_Manager.purpleMinerals == 1)
         {
+            secretEnding.SetActive(true);
             congrats.SetActive(true);
         }
     }

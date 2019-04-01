@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed = 0.5f;
     public Transform ship;
     public GameObject gMRef;
+    public CircuitSpawner circuitRef;
 
     //public float maxDistance = 5f;
 
@@ -30,6 +31,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid")
         {
+            circuitRef.CircuitPopUp(gameObject.transform);
             gMRef.GetComponent<CameraShake>().shakeAmount = 0.2f;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0.2f;

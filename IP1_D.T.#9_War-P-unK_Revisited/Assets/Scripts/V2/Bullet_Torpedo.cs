@@ -6,6 +6,7 @@ public class Bullet_Torpedo : MonoBehaviour
 {
     public GameObject gMRef;
     public float slope = 0.5f;
+    public CircuitSpawner circuitRef;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Bullet_Torpedo : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid")
         {
+            circuitRef.CircuitPopUp(gameObject.transform);
             gMRef.GetComponent<CameraShake>().shakeAmount = 0.2f;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0.2f;

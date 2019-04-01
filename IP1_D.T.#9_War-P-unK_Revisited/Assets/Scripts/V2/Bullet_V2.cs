@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet_V2 : MonoBehaviour
 {
     public GameObject gMRef;
+    public CircuitSpawner circuitRef;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Bullet_V2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid")
         {
+            circuitRef.CircuitPopUp(gameObject.transform);
             gMRef.GetComponent<CameraShake>().shakeAmount = 0.2f;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0;
             gMRef.GetComponent<CameraShake>().shakeDuration = 0.2f;
