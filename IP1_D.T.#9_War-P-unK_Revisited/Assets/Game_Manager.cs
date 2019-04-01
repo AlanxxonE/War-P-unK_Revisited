@@ -21,6 +21,10 @@ public class Game_Manager : MonoBehaviour
     public GameObject spaceShip3DRef;
     public GameObject lightRef;
     public GameObject warpLightRef;
+    public GameObject camera2DRef;
+    public GameObject camera3DRef;
+    bool checkRotationWarp = false;
+    public GameObject glitchEffectRef;
 
     public GameObject wallRef;
     public Material switchBackground;
@@ -57,6 +61,12 @@ public class Game_Manager : MonoBehaviour
     public GameObject torpedoSlotRef;
     public GameObject shotgunSpawnerRef;
     public GameObject shotgunSlotRef;
+
+    public static int radiumCurrency = 0;
+    public static bool torpedoUnlocked = false;
+    public static bool shotgunUnlocked = false;
+
+    bool addCurrency = true;
     // Use this for initialization
     void Start ()
     {
@@ -99,7 +109,7 @@ public class Game_Manager : MonoBehaviour
         if(fuel == 0)
         {
             print("RunOutOfFuel");
-            SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
+            StartCoroutine("PlayerDeath");
         }
         if(hitPoints == 2)
         {
@@ -120,6 +130,19 @@ public class Game_Manager : MonoBehaviour
         {
             warpCharge += 0.01f;
 
+            if (glitchEffectRef.activeSelf == false)
+                glitchEffectRef.SetActive(true);
+
+            if (spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D == true)
+            {
+                camera2DRef.transform.Rotate(0, -warpCharge * 1.8f, 0);
+                checkRotationWarp = true;
+            }
+            if(spaceShip3DRef.GetComponent<Ship>().checkActive3D == true)
+            {
+                camera3DRef.transform.Rotate(0, warpCharge * 1.8f, 0);
+                checkRotationWarp = true;
+            }
             if (Time.timeScale > 0.1f)
                 Time.timeScale -= 0.01f;
             
@@ -151,6 +174,18 @@ public class Game_Manager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.W) || warpCharge == 0f)
         {
+            StartCoroutine("EndGlitchEffect");
+
+            if (spaceShip2DRef.GetComponent<PlayerMovements_V2>().checkActive2D == true && checkRotationWarp == true)
+            {
+                camera2DRef.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                checkRotationWarp = false;
+            }
+            if(spaceShip3DRef.GetComponent<Ship>().checkActive3D == true && checkRotationWarp == true)
+            {
+                camera3DRef.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                checkRotationWarp = false;
+            }
             gameObject.GetComponent<Pause_State>().checkPause = false;
             Time.timeScale = 1.0f;
             warpCharge = 0;
@@ -316,6 +351,11 @@ public class Game_Manager : MonoBehaviour
     {
         fadeInDeath.SetActive(true);
         yield return new WaitForSeconds(0.9f);
+        if (addCurrency == true && radiumCurrency < 1000000000)
+        {
+            Game_Manager.radiumCurrency += Game_Manager.score * Game_Manager.greenMinerals;
+            addCurrency = false;
+        }
         SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
     }
     IEnumerator activateFuelNotifier()
@@ -351,5 +391,12 @@ public class Game_Manager : MonoBehaviour
         HPNotifierRef.SetActive(true);
         yield return new WaitForSeconds(0.30f);
         HPNotifierRef.SetActive(false);
+    }
+
+    IEnumerator EndGlitchEffect()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (glitchEffectRef.activeSelf == true)
+            glitchEffectRef.SetActive(false);
     }
 }

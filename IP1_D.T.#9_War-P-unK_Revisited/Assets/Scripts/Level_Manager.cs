@@ -12,9 +12,16 @@ public class Level_Manager : MonoBehaviour
     public Button exitPrototype;
     public Button controlPanel;
     public Button backMenu;
+    public Button marketPlace;
+    public GameObject currencyTextRef;
 
     public GameObject startImageRef;
     static bool canStart = false;
+
+    public Button unlockTorpedoRef;
+    public Button unlockShotgunRef;
+    public Image TPRef;
+    public Image SGRef;
 
 	void Start ()
     {
@@ -31,6 +38,12 @@ public class Level_Manager : MonoBehaviour
 
         if (backMenu != null)
             backMenu.onClick.AddListener(ShowMenu);
+
+        if (marketPlace != null)
+            marketPlace.onClick.AddListener(loadShop);
+
+        if(currencyTextRef != null)
+        currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
 	}
 
 	void Update ()
@@ -54,8 +67,17 @@ public class Level_Manager : MonoBehaviour
         {
             startImageRef.GetComponent<Image>().color = Color.grey;
         }
+
+        if(unlockTorpedoRef != null && Game_Manager.radiumCurrency < 100)
+        {
+            unlockTorpedoRef.GetComponent<Image>().color = Color.grey;
+        }
     }
 
+    public void unlockTorpedo()
+    {
+
+    }
     public void StartFromCutScene()
     {
         SceneManager.LoadScene("Prototype_V2", LoadSceneMode.Single);
@@ -85,5 +107,9 @@ public class Level_Manager : MonoBehaviour
     void Controls()
     {
         SceneManager.LoadScene("Controls_Panel", LoadSceneMode.Single);
+    }
+    void loadShop()
+    {
+        SceneManager.LoadScene("Market_Place", LoadSceneMode.Single);
     }
 }

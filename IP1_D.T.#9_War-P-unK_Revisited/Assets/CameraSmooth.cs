@@ -7,24 +7,24 @@ public class CameraSmooth : MonoBehaviour {
     public Transform camera2DRef;
     public Transform camera3DRef;
 
-    float moveUp = 0;
-    float moveDown = 0;
-    float moveLeft = 0;
-    float moveRight = 0;
+    //float moveUp = 0;
+    //float moveDown = 0;
+    //float moveLeft = 0;
+    //float moveRight = 0;
 
-    bool movedUp = false;
-    bool movedRight = false;
-    bool movedDown = false;
-    Quaternion original2DRot;
-    Quaternion original3DPos;
+    //bool movedUp = false;
+    //bool movedRight = false;
+    //bool movedDown = false;
+    //Quaternion original2DRot;
+    //Quaternion original3DPos;
 
     float axisY;
     float axisX;
 
     void Start()
     {
-        original2DRot = camera2DRef.transform.rotation;
-        original3DPos = camera3DRef.transform.rotation;
+        //original2DRot = camera2DRef.transform.rotation;
+        //original3DPos = camera3DRef.transform.rotation;
         
     }
 
