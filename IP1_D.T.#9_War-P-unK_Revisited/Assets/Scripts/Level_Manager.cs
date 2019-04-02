@@ -104,9 +104,18 @@ public class Level_Manager : MonoBehaviour
         {
             unlockTorpedoRef.onClick.AddListener(unlockTorpedo);
         }
+        else if(Game_Manager.radiumCurrency < 10000 && Game_Manager.torpedoUnlocked == false && unlockTorpedoRef != null)
+        {
+            unlockTorpedoRef.onClick.RemoveAllListeners();
+        }
+
         if (Game_Manager.radiumCurrency >= 20000 && Game_Manager.shotgunUnlocked == false && unlockShotgunRef != null)
         {
             unlockShotgunRef.onClick.AddListener(unlockShotgun);
+        }
+        else if (Game_Manager.radiumCurrency < 20000 && Game_Manager.shotgunUnlocked == false && unlockShotgunRef != null)
+        {
+            unlockShotgunRef.onClick.RemoveAllListeners();
         }
         if (Game_Manager.torpedoUnlocked == true && unlockTorpedoRef != null)
         {

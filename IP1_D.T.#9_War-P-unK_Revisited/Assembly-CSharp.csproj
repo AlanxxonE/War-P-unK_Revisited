@@ -90,6 +90,7 @@
     <Compile Include="Assets\PickUp.cs" />
     <Compile Include="Assets\PurpleMineralPickUp.cs" />
     <Compile Include="Assets\PurpleSpawner.cs" />
+    <Compile Include="Assets\RemoveAnimations.cs" />
     <Compile Include="Assets\rotationblock.cs" />
     <Compile Include="Assets\ScreenWipe.cs" />
     <Compile Include="Assets\ScreenWipe3D.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Assets\Scripts\V2\Bullet_Torpedo.cs" />
     <Compile Include="Assets\Scripts\V2\Bullet_V2.cs" />
     <Compile Include="Assets\Scripts\V2\BulletSpawner_V2.cs" />
+    <Compile Include="Assets\Scripts\V2\Laser_Beam.cs" />
+    <Compile Include="Assets\Scripts\V2\LaserSpawner.cs" />
     <Compile Include="Assets\Scripts\V2\PlayerMovements_V2.cs" />
     <Compile Include="Assets\Scripts\V2\ShotgunSpawner.cs" />
     <Compile Include="Assets\Scripts\V2\TextureMovement_V2.cs" />
@@ -116,16 +119,16 @@
     <Compile Include="Assets\WallSpawner.cs" />
     <Compile Include="Assets\Warning3D.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/User/Desktop/University/GitHub/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/Desktop/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/User/Desktop/University/GitHub/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/Desktop/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/User/Desktop/University/GitHub/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/Desktop/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/User/Desktop/University/GitHub/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/Desktop/War-P-unK_Revisited/IP1_D.T.#9_War-P-unK_Revisited/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -201,9 +204,6 @@
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ParticlesLegacyModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
@@ -326,10 +326,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/User/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/User/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/ascisc200/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

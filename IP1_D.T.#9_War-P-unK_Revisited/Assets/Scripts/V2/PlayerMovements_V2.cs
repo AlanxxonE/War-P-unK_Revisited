@@ -7,6 +7,7 @@ public class PlayerMovements_V2 : MonoBehaviour
 {
     private Vector3 spaceVerticalSpeed = new Vector3(0, 0.3f);
 
+    public LaserSpawner laserRef;
     public ShotgunSpawner shotgunRef;
     public TorpedoSpawner torpedoRef;
     public BulletSpawner_V2 bulletSpawnerReference;
@@ -38,6 +39,8 @@ public class PlayerMovements_V2 : MonoBehaviour
             torpedoRef.SpawnTorpedo();
             if (shotgunRef.gameObject.activeSelf == true)
                 shotgunRef.SpawnShotgun();
+            if (laserRef.gameObject.activeSelf == true)
+                laserRef.SpawnLaser();
         }
 
         //if (gMRef.checkWarpDelay == false || checkActive2D == false)

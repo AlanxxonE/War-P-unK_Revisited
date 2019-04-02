@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/User/Desktop/War-P-unK_OpenBeta/IP1_D.T.#9_War-P-unK.exe
+C:/Users/ascisc200/Desktop/War-P-unK_OpenBeta_PatchedVersion/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Controls_Panel.unity
@@ -206,7 +206,7 @@ dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 32a7400626473052f65b43de9c187e88 Assembly-CSharp.dll:.PairedUpAsteroid
 aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 e9db72bce36f4152c0ee61c2b0ea13e5 Assembly-CSharp.dll:.PairBlueMineral
-fd18e9bbcfe15418b5fef9a84272898b Assembly-CSharp.dll:.PlayerMovements_V2
+066450b9da16e008e8be1d5e463d40df Assembly-CSharp.dll:.PlayerMovements_V2
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Asteroid_V1
 ddbfa37939398fa80bedbe439208ecb4 Assembly-CSharp.dll:.PlayerCollision_V1
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -222,3 +222,6 @@ a4741e4daaa0a2a43698aded24b6ab2f Assembly-CSharp.dll:.PairPurpleMineral
 7c89a35dd5c48fb50eda29359162ad15 Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 08dbd6f5e88dda353e66eeadbfd0541d Assembly-CSharp.dll:.Game_Manager
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.RemoveAnimations
+29bff07193e16245ea287af12d3d7494 Assembly-CSharp.dll:.Laser_Beam
+c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.LaserSpawner

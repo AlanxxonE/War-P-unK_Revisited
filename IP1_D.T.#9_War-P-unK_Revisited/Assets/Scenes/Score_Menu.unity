@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 598769463}
   - component: {fileID: 598769462}
   - component: {fileID: 598769461}
+  - component: {fileID: 598769464}
   m_Layer: 5
   m_Name: SecretEnding
   m_TagString: Untagged
@@ -667,7 +668,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 718113939}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -726,6 +727,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598769459}
   m_CullTransparentMesh: 0
+--- !u!114 &598769464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598769459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642a7444efbe0d24a9f83e5a8f81a89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690093541
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,8 +922,8 @@ RectTransform:
   - {fileID: 955483108}
   - {fileID: 1545705602}
   - {fileID: 1381927569}
-  - {fileID: 598769460}
   - {fileID: 1064083543}
+  - {fileID: 598769460}
   - {fileID: 690093542}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1041,8 +1053,15 @@ MonoBehaviour:
   exitPrototype: {fileID: 1381927570}
   controlPanel: {fileID: 0}
   backMenu: {fileID: 1545705603}
+  marketPlace: {fileID: 0}
   currencyTextRef: {fileID: 24406312}
   startImageRef: {fileID: 0}
+  unlockTorpedoRef: {fileID: 0}
+  unlockShotgunRef: {fileID: 0}
+  TPRef: {fileID: 0}
+  SGRef: {fileID: 0}
+  torpedoPrice: {fileID: 0}
+  shotgunPrice: {fileID: 0}
 --- !u!1 &900234571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1235,7 @@ RectTransform:
   m_Children:
   - {fileID: 24406313}
   m_Father: {fileID: 718113939}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
