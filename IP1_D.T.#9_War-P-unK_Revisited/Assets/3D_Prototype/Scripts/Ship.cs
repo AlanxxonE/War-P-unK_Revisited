@@ -29,9 +29,12 @@ public class Ship : MonoBehaviour
 
     public GameObject screenWipeRef;
     public GameObject screenWipe3DRef;
+
+    //public GameObject bulletReference3D;
     private void Start()
     {
         InvokeRepeating("FireBullet", 0, bulletDelay);
+        //InvokeRepeating("FireLaser", 0, 0.1f);
     }
 
     private void FixedUpdate()
@@ -126,6 +129,20 @@ public class Ship : MonoBehaviour
             bulletClone.gameObject.SetActive(true);
         }
     }
+
+    //void FireLaser()
+    //{
+    //    bool isSpacePressed = Input.GetKey(SpaceKey);
+
+    //    if (isSpacePressed && cameraSwitcherReference.CameraControl == 0)
+    //    {
+    //        GameObject bulletTemp3D = Instantiate(bulletReference3D);
+    //        bulletTemp3D.SetActive(true);
+    //        bulletTemp3D.transform.position = gameObject.transform.position;
+    //        bulletTemp3D.transform.Rotate(0, 90, 0);
+    //        bulletTemp3D.transform.parent = gameObject.transform;
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

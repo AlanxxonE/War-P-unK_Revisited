@@ -20,14 +20,18 @@ public class Level_Manager : MonoBehaviour
 
     bool boughtTorpedo = false;
     bool boughtShotgun = false;
+    bool boughtLaser = false;
     public Button unlockTorpedoRef;
     public Button unlockShotgunRef;
+    public Button unlockLaserRef;
     public Image TPRef;
     public Image SGRef;
+    public Image LBRef;
     public GameObject torpedoPrice;
     public GameObject shotgunPrice;
+    public GameObject LaserPrice;
 
-	void Start ()
+    void Start ()
     {
         if (startPrototypeV1 != null)
             startPrototypeV1.onClick.AddListener(LoadV1);
@@ -56,6 +60,10 @@ public class Level_Manager : MonoBehaviour
         if (Game_Manager.shotgunUnlocked == true)
         {
             Destroy(shotgunPrice);
+        }
+        if (Game_Manager.laserUnlocked == true)
+        {
+            Destroy(LaserPrice);
         }
     }
 
@@ -91,11 +99,20 @@ public class Level_Manager : MonoBehaviour
             unlockShotgunRef.GetComponent<Image>().color = Color.grey;
         }
 
-        if(TPRef != null && Game_Manager.torpedoUnlocked == false)
+        if (unlockLaserRef != null && Game_Manager.radiumCurrency < 50000)
+        {
+            unlockLaserRef.GetComponent<Image>().color = Color.grey;
+        }
+
+        if (TPRef != null && Game_Manager.torpedoUnlocked == false)
         {
             TPRef.color = Color.grey;
         }
         if(SGRef != null && Game_Manager.shotgunUnlocked == false)
+        {
+            SGRef.color = Color.grey;
+        }
+        if (LBRef != null && Game_Manager.laserUnlocked == false)
         {
             SGRef.color = Color.grey;
         }
@@ -117,6 +134,16 @@ public class Level_Manager : MonoBehaviour
         {
             unlockShotgunRef.onClick.RemoveAllListeners();
         }
+
+        if (Game_Manager.radiumCurrency >= 50000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
+        {
+            unlockLaserRef.onClick.AddListener(unlockLaser);
+        }
+        else if (Game_Manager.radiumCurrency < 50000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
+        {
+            unlockLaserRef.onClick.RemoveAllListeners();
+        }
+
         if (Game_Manager.torpedoUnlocked == true && unlockTorpedoRef != null)
         {
             StartCoroutine("TorpedoPriceFade");
@@ -130,6 +157,13 @@ public class Level_Manager : MonoBehaviour
             unlockShotgunRef.onClick.RemoveAllListeners();
             unlockShotgunRef.GetComponentInChildren<Text>().text = "UNLOCKED";
             unlockShotgunRef.GetComponent<Image>().color = Color.yellow;
+        }
+        if (Game_Manager.laserUnlocked == true && unlockLaserRef != null)
+        {
+            StartCoroutine("LaserPriceFade");
+            unlockLaserRef.onClick.RemoveAllListeners();
+            unlockLaserRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+            unlockLaserRef.GetComponent<Image>().color = Color.yellow;
         }
     }
 
@@ -166,6 +200,24 @@ public class Level_Manager : MonoBehaviour
 
         Game_Manager.shotgunUnlocked = true;
     }
+
+    public void unlockLaser()
+    {
+        if (boughtLaser == false)
+        {
+            Game_Manager.radiumCurrency -= 50000;
+            boughtLaser = true;
+        }
+
+        if (currencyTextRef != null)
+            currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
+        unlockLaserRef.GetComponentInChildren<Text>().text = "UNLOCKED";
+        unlockLaserRef.GetComponent<Image>().color = Color.yellow;
+        LBRef.color = Color.white;
+
+        Game_Manager.laserUnlocked = true;
+    }
+
     public void StartFromCutScene()
     {
         SceneManager.LoadScene("Prototype_V2", LoadSceneMode.Single);
@@ -218,5 +270,14 @@ public class Level_Manager : MonoBehaviour
         if (shotgunPrice != null)
             Destroy(shotgunPrice);
 
+    }
+
+    IEnumerator LaserPriceFade()
+    {
+        if (LaserPrice != null)
+            LaserPrice.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        if (LaserPrice != null)
+            Destroy(LaserPrice);
     }
 }

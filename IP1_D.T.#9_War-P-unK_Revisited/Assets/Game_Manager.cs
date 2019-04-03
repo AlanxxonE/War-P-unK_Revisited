@@ -61,10 +61,13 @@ public class Game_Manager : MonoBehaviour
     public GameObject torpedoSlotRef;
     public GameObject shotgunSpawnerRef;
     public GameObject shotgunSlotRef;
+    public GameObject laserSpawnerRef;
+    public GameObject laserSlotRef;
 
-    public static int radiumCurrency = 0;
+    public static int radiumCurrency = 49900;
     public static bool torpedoUnlocked = false;
     public static bool shotgunUnlocked = false;
+    public static bool laserUnlocked = false;
 
     bool addCurrency = true;
     // Use this for initialization
@@ -78,7 +81,9 @@ public class Game_Manager : MonoBehaviour
         animationReference.speed = 1000;
         scoreTemp = Game_Manager.score;
         fuelTemp = fuel;
-	}
+
+        PlayerMovements_V2.laserBeamSprite = true;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -243,6 +248,11 @@ public class Game_Manager : MonoBehaviour
                     shotgunSpawnerRef.SetActive(false);
                     shotgunSlotRef.SetActive(false);
                 }
+                if(laserSpawnerRef.activeSelf == true)
+                {
+                    laserSpawnerRef.SetActive(false);
+                    laserSlotRef.SetActive(false);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && torpedoUnlocked == true)
             {
@@ -265,6 +275,11 @@ public class Game_Manager : MonoBehaviour
                 {
                     shotgunSpawnerRef.SetActive(false);
                     shotgunSlotRef.SetActive(false);
+                }
+                if (laserSpawnerRef.activeSelf == true)
+                {
+                    laserSpawnerRef.SetActive(false);
+                    laserSlotRef.SetActive(false);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && shotgunUnlocked == true)
@@ -289,6 +304,39 @@ public class Game_Manager : MonoBehaviour
                     torpedoSpawnerRef.SetActive(false);
                     torpedoSlotRef.SetActive(false);
                 }
+                if (laserSpawnerRef.activeSelf == true)
+                {
+                    laserSpawnerRef.SetActive(false);
+                    laserSlotRef.SetActive(false);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4) && laserUnlocked == true)
+            {
+
+                if (spaceShip2DRef.GetComponent<SpriteRenderer>().sprite != powerUpShip)
+                    spaceShip2DRef.GetComponent<SpriteRenderer>().sprite = powerUpShip;
+
+                if (laserSpawnerRef.activeSelf == false)
+                {
+                    spaceShip2DRef.GetComponent<PlayerMovements_V2>().reload = true;
+                    laserSpawnerRef.SetActive(true);
+                    laserSlotRef.SetActive(true);
+                }
+                if (bulletSpawnerRef.activeSelf == true)
+                {
+                    bulletSpawnerRef.SetActive(false);
+                    bulletSlotRef.SetActive(false);
+                }
+                if (torpedoSpawnerRef.activeSelf == true)
+                {
+                    torpedoSpawnerRef.SetActive(false);
+                    torpedoSlotRef.SetActive(false);
+                }
+                if (shotgunSpawnerRef.activeSelf == true)
+                {
+                    shotgunSpawnerRef.SetActive(false);
+                    shotgunSlotRef.SetActive(false);
+                }
             }
         }
         else
@@ -311,6 +359,11 @@ public class Game_Manager : MonoBehaviour
             {
                 shotgunSpawnerRef.SetActive(false);
                 shotgunSlotRef.SetActive(false);
+            }
+            if (laserSpawnerRef.activeSelf == true)
+            {
+                laserSpawnerRef.SetActive(false);
+                laserSlotRef.SetActive(false);
             }
         }
     }

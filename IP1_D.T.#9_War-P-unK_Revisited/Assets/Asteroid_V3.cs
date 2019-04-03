@@ -10,7 +10,7 @@ public class Asteroid_V3 : MonoBehaviour
     public Game_Manager gMRef;
     public Pause_State pauseRef;
 
-    public int destoryHit;
+    public float destoryHit;
 
     public GameObject explosionRef2D;
     public GameObject explosionRef3D;

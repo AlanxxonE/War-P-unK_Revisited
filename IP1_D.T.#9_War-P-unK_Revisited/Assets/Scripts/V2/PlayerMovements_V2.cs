@@ -17,6 +17,10 @@ public class PlayerMovements_V2 : MonoBehaviour
     public CameraShake cameraRef;
     public GameObject explosionRef;
 
+    public float chargeLaserDelay;
+    public static bool laserBeamSprite = true;
+    public GameObject laserBeamParticle;
+
     public GameObject screenWipeRef;
     public GameObject screenWipe3DRef;
     void Update()
@@ -33,14 +37,39 @@ public class PlayerMovements_V2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && reload == true && checkActive2D == true)
         {
-            if(bulletSpawnerReference.gameObject.activeSelf == true)
-            bulletSpawnerReference.SpawnBulletV2();
-            if(torpedoRef.gameObject.activeSelf == true)
-            torpedoRef.SpawnTorpedo();
+            if (bulletSpawnerReference.gameObject.activeSelf == true)
+            {
+                bulletSpawnerReference.SpawnBulletV2();
+                laserBeamParticle.SetActive(false);
+            }
+            if (torpedoRef.gameObject.activeSelf == true)
+            {
+                torpedoRef.SpawnTorpedo();
+                laserBeamParticle.SetActive(false);
+            }
             if (shotgunRef.gameObject.activeSelf == true)
+            {
                 shotgunRef.SpawnShotgun();
+                laserBeamParticle.SetActive(false);
+            }
             if (laserRef.gameObject.activeSelf == true)
-                laserRef.SpawnLaser();
+            {
+                if(chargeLaserDelay < 2)
+                chargeLaserDelay += 0.01f;
+
+                laserBeamParticle.SetActive(true);
+
+                if (chargeLaserDelay > 1)
+                {
+                    laserRef.SpawnLaser();
+                }
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            laserBeamParticle.SetActive(false);
+            chargeLaserDelay = 0;
         }
 
         //if (gMRef.checkWarpDelay == false || checkActive2D == false)
