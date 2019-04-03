@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/ascisc200/Desktop/War-P-unK_OpenBeta_PatchedVersion/IP1_D.T.#9_War-P-unK.exe
+C:/Users/ascisc200/Desktop/War-P-unK_OpenBeta_WeaponUpdate/IP1_D.T.#9_War-P-unK.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Controls_Panel.unity
@@ -32,7 +32,7 @@ c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.BulletSpawner_V2
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 8c277d1d187af7448fec3dd6c53b98de Assembly-CSharp.dll:.CameraSwitcher
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
-3b20c88932e79efdef8ed282fda45723 Assembly-CSharp.dll:.Asteroid_V3
+e985249708d2fe36d41ee188268f8609 Assembly-CSharp.dll:.Asteroid_V3
 a022b12fc574d16fcd9cb19e071332d2 Assembly-CSharp.dll:.DimensionalMineral
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -135,6 +135,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 c15e18c15544b494e6674cbede7d96a5 Assembly-CSharp.dll:.Enemy
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.RemoveAnimations
 c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.ShotgunSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.HitBox
 3a85b435990fd664c5cc0b776c519485 Assembly-CSharp.dll:.Bullet_Shotgun
@@ -146,6 +147,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+6c0611c5d33d84980f9f52fcef65acf7 Assembly-CSharp.dll:.LaserSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ScreenWipe3D
 1af7220b14b8cbda7f8b48d097004442 Assembly-CSharp.dll:.CutSceneTimer
 c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.TorpedoSpawner
@@ -206,10 +208,11 @@ dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 32a7400626473052f65b43de9c187e88 Assembly-CSharp.dll:.PairedUpAsteroid
 aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 e9db72bce36f4152c0ee61c2b0ea13e5 Assembly-CSharp.dll:.PairBlueMineral
-066450b9da16e008e8be1d5e463d40df Assembly-CSharp.dll:.PlayerMovements_V2
+30f4f120575fc121f801095cffe1d80f Assembly-CSharp.dll:.PlayerMovements_V2
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Asteroid_V1
 ddbfa37939398fa80bedbe439208ecb4 Assembly-CSharp.dll:.PlayerCollision_V1
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+2c22fe81ee0759d0ffc372d8c910b49e Assembly-CSharp.dll:.Laser_Beam
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 e23ef5560ac9c30a330c9652b3dcfa25 Assembly-CSharp.dll:.Pause_State
 1c1b7e2af9de1697a63dfbcdfeec9292 Assembly-CSharp.dll:.HBSpawner
@@ -219,9 +222,6 @@ a9d6c4f0824f74a076a559e0e5ea3626 Assembly-CSharp.dll:.Test2D3DSpawner
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 4b198f58a1da9b94c343f4fa0ae60ad9 Assembly-CSharp.dll:.CameraSmooth
 a4741e4daaa0a2a43698aded24b6ab2f Assembly-CSharp.dll:.PairPurpleMineral
-7c89a35dd5c48fb50eda29359162ad15 Assembly-CSharp.dll:.Level_Manager
+744dda879c458e41340b7bc628325c4f Assembly-CSharp.dll:.Level_Manager
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-08dbd6f5e88dda353e66eeadbfd0541d Assembly-CSharp.dll:.Game_Manager
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.RemoveAnimations
-29bff07193e16245ea287af12d3d7494 Assembly-CSharp.dll:.Laser_Beam
-c9f29a24334cd3064c9929cd653a51c3 Assembly-CSharp.dll:.LaserSpawner
+24f5013f8037b14ffa97599073a86da6 Assembly-CSharp.dll:.Game_Manager

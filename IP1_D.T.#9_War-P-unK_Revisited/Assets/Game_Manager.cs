@@ -64,7 +64,7 @@ public class Game_Manager : MonoBehaviour
     public GameObject laserSpawnerRef;
     public GameObject laserSlotRef;
 
-    public static int radiumCurrency = 49900;
+    public static int radiumCurrency = 0;
     public static bool torpedoUnlocked = false;
     public static bool shotgunUnlocked = false;
     public static bool laserUnlocked = false;
