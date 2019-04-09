@@ -13,6 +13,7 @@ public class Level_Manager : MonoBehaviour
     public Button controlPanel;
     public Button backMenu;
     public Button marketPlace;
+    public Button credits;
     public GameObject currencyTextRef;
 
     public GameObject startImageRef;
@@ -31,6 +32,7 @@ public class Level_Manager : MonoBehaviour
     public GameObject shotgunPrice;
     public GameObject LaserPrice;
 
+    public GameObject highScoreRef;
     void Start ()
     {
         if (startPrototypeV1 != null)
@@ -50,6 +52,9 @@ public class Level_Manager : MonoBehaviour
         if (marketPlace != null)
             marketPlace.onClick.AddListener(loadShop);
 
+        if (credits != null)
+            credits.onClick.AddListener(displayCredits);
+
         if(currencyTextRef != null)
         currencyTextRef.GetComponent<Text>().text = "RADIUM: " + Game_Manager.radiumCurrency.ToString() + " ¬";
 
@@ -64,6 +69,11 @@ public class Level_Manager : MonoBehaviour
         if (Game_Manager.laserUnlocked == true)
         {
             Destroy(LaserPrice);
+        }
+
+        if(highScoreRef != null)
+        {
+            highScoreRef.GetComponent<Text>().text ="HIGHSCORE: " + PlayerPrefs.GetInt(Game_Manager.scoreKey).ToString();
         }
     }
 
@@ -99,7 +109,7 @@ public class Level_Manager : MonoBehaviour
             unlockShotgunRef.GetComponent<Image>().color = Color.grey;
         }
 
-        if (unlockLaserRef != null && Game_Manager.radiumCurrency < 50000)
+        if (unlockLaserRef != null && Game_Manager.radiumCurrency < 30000)
         {
             unlockLaserRef.GetComponent<Image>().color = Color.grey;
         }
@@ -135,11 +145,11 @@ public class Level_Manager : MonoBehaviour
             unlockShotgunRef.onClick.RemoveAllListeners();
         }
 
-        if (Game_Manager.radiumCurrency >= 50000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
+        if (Game_Manager.radiumCurrency >= 30000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
         {
             unlockLaserRef.onClick.AddListener(unlockLaser);
         }
-        else if (Game_Manager.radiumCurrency < 50000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
+        else if (Game_Manager.radiumCurrency < 30000 && Game_Manager.laserUnlocked == false && unlockLaserRef != null)
         {
             unlockLaserRef.onClick.RemoveAllListeners();
         }
@@ -205,7 +215,7 @@ public class Level_Manager : MonoBehaviour
     {
         if (boughtLaser == false)
         {
-            Game_Manager.radiumCurrency -= 50000;
+            Game_Manager.radiumCurrency -= 30000;
             boughtLaser = true;
         }
 
@@ -253,6 +263,10 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene("Market_Place", LoadSceneMode.Single);
     }
 
+    void displayCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
     IEnumerator TorpedoPriceFade()
     {
         if (torpedoPrice != null)

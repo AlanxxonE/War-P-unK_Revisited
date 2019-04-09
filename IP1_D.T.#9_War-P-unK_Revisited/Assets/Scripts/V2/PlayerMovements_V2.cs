@@ -54,6 +54,7 @@ public class PlayerMovements_V2 : MonoBehaviour
             }
             if (laserRef.gameObject.activeSelf == true)
             {
+                laserRef.GetComponent<AudioSource>().enabled = true;
                 if(chargeLaserDelay < 2)
                 chargeLaserDelay += 0.01f;
 
@@ -68,6 +69,7 @@ public class PlayerMovements_V2 : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.Space))
         {
+            laserRef.GetComponent<AudioSource>().enabled = false;
             laserBeamParticle.SetActive(false);
             chargeLaserDelay = 0;
         }

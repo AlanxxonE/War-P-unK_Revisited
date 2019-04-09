@@ -11,6 +11,9 @@ public class FinalCheckList : MonoBehaviour
 
     public GameObject congrats;
     public GameObject secretEnding;
+
+    public GameObject highscoreRef;
+
     //public GameObject outOfFuel;
 	// Use this for initialization
 	void Start ()
@@ -24,6 +27,8 @@ public class FinalCheckList : MonoBehaviour
             secretEnding.SetActive(true);
             congrats.SetActive(true);
         }
+
+        highscoreRef.GetComponent<Text>().text = PlayerPrefs.GetInt(Game_Manager.scoreKey).ToString();
     }
 	
 	// Update is called once per frame

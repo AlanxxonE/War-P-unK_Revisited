@@ -70,6 +70,9 @@ public class Game_Manager : MonoBehaviour
     public static bool laserUnlocked = false;
 
     bool addCurrency = true;
+
+    public static string scoreKey;
+    public static int highScore;
     // Use this for initialization
     void Start ()
     {
@@ -82,6 +85,7 @@ public class Game_Manager : MonoBehaviour
         scoreTemp = Game_Manager.score;
         fuelTemp = fuel;
 
+        highScore = PlayerPrefs.GetInt(scoreKey);
         PlayerMovements_V2.laserBeamSprite = true;
     }
 	
@@ -91,17 +95,17 @@ public class Game_Manager : MonoBehaviour
         fuelReference.text = fuel.ToString();
         scoreReference.text = score.ToString();
         if (greenMinerals <= 10)
-            greenMineralsCountRef.text = greenMinerals.ToString() + " / 10";
+            greenMineralsCountRef.text = greenMinerals.ToString() + "/10";
         else
             greenMinerals = 10;
 
         if (blueMinerals <= 3)
-            blueMineralsCountRef.text = blueMinerals.ToString() + " / 3";
+            blueMineralsCountRef.text = blueMinerals.ToString() + "/3";
         else
             blueMinerals = 3;
 
         if (purpleMinerals <= 1)
-            purpleMineralsCountRef.text = purpleMinerals.ToString() + " / 1";
+            purpleMineralsCountRef.text = purpleMinerals.ToString() + "/1";
         else
             purpleMinerals = 1;
 
@@ -406,8 +410,14 @@ public class Game_Manager : MonoBehaviour
         yield return new WaitForSeconds(0.9f);
         if (addCurrency == true && radiumCurrency < 1000000000)
         {
-            Game_Manager.radiumCurrency += Game_Manager.score * Game_Manager.greenMinerals;
+            Game_Manager.radiumCurrency += Game_Manager.score * (Game_Manager.greenMinerals + Game_Manager.blueMinerals*2 + Game_Manager.purpleMinerals*3);
             addCurrency = false;
+        }
+
+        if(Game_Manager.score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt(scoreKey, highScore);
         }
         SceneManager.LoadScene("Score_Menu", LoadSceneMode.Single);
     }
